@@ -1,0 +1,80 @@
+{
+  "personalInfo": {
+    "id": "1",
+    "name": "Your Name",
+    "title": "Full Stack Developer",
+    "email": "your.email@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "Your City, Country",
+    "bio": "Passionate developer with experience in modern web technologies",
+    "avatarUrl": "/images/avatar.png",
+    "resumeUrl": "/resume.pdf",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "aboutInfo": {
+    "id": "1",
+    "content": "I'm a passionate full-stack developer with expertise in modern web technologies. I love creating efficient, scalable, and user-friendly applications.",
+    "highlights": [
+      "5+ years of experience in web development",
+      "Expert in React, Node.js, and TypeScript",
+      "Strong background in database design and optimization"
+    ],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "skillCategories": [
+    {
+      "id": "1",
+      "name": "Frontend",
+      "skills": [
+        { "name": "React", "proficiency": 90 },
+        { "name": "TypeScript", "proficiency": 85 },
+        { "name": "Next.js", "proficiency": 80 },
+        { "name": "Tailwind CSS", "proficiency": 85 }
+      ],
+      "order": 1,
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Backend",
+      "skills": [
+        { "name": "Node.js", "proficiency": 85 },
+        { "name": "Python", "proficiency": 80 },
+        { "name": "PostgreSQL", "proficiency": 75 },
+        { "name": "MongoDB", "proficiency": 70 }
+      ],
+      "order": 2,
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ],
+  "contactInfo": {
+    "id": "1",
+    "email": "your.email@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "Your City, Country",
+    "linkedin": "https://linkedin.com/in/yourprofile",
+    "github": "https://github.com/yourusername",
+    "twitter": "https://twitter.com/yourusername",
+    "website": "https://yourwebsite.com",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  "siteSettings": {
+    "id": "1",
+    "siteName": "Your Portfolio",
+    "siteDescription": "Portfolio of a passionate full-stack developer",
+    "siteUrl": "https://yourportfolio.com",
+    "theme": "dark",
+    "showProjects": true,
+    "showExperiences": true,
+    "showSkills": true,
+    "showContact": true,
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  }
+}
+

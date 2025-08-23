@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "title": "Portfolio Website",
+    "description": "A responsive portfolio website built with Next.js and TypeScript",
+    "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    "githubUrl": "https://github.com/yourusername/portfolio",
+    "liveUrl": "https://yourportfolio.com",
+    "imageUrl": "/images/portfolio-project.jpg",
+    "featured": true,
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "E-commerce App",
+    "description": "Full-stack e-commerce application with payment integration",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+    "githubUrl": "https://github.com/yourusername/ecommerce",
+    "liveUrl": "https://yourecommerce.com",
+    "imageUrl": "/images/ecommerce-project.jpg",
+    "featured": true,
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z"
+  }
+]
+
