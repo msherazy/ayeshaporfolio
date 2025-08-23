@@ -105,58 +105,5 @@
     "technologies": ["Marketing", "Brochure Creation", "Market Research", "Content Development"],
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "7",
-    "title": "Marketing Executive",
-    "company": "Minora Cart",
-    "location": "Dubai, UAE",
-    "startDate": "2022-04-01",
-    "endDate": "2022-06-30",
-    "current": false,
-    "period": "April - June 2022",
-    "description": [
-      "Created customized marketing materials to increase product awareness",
-      "Developed content strategies for digital media platforms",
-      "Approached influencers for social media marketing and maintained communication for good relations"
-    ],
-    "technologies": ["Marketing Materials", "Content Strategy", "Influencer Marketing", "Digital Media"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "8",
-    "title": "Social Media Agent",
-    "company": "IMDDXB",
-    "location": "Dubai, UAE",
-    "startDate": "2022-01-01",
-    "endDate": "2022-04-30",
-    "current": false,
-    "period": "January - April 2022",
-    "description": [
-      "Managed social media influencer accounts, increasing engagement by 35%",
-      "Facilitated communication between influencers and HR teams for employee branding initiatives"
-    ],
-    "technologies": ["Social Media Management", "Influencer Coordination", "Employee Branding"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "9",
-    "title": "HR Assistant",
-    "company": "YuSHIAN",
-    "location": "Dubai, UAE",
-    "startDate": "2020-01-01",
-    "endDate": "2020-06-30",
-    "current": false,
-    "period": "January - June 2020",
-    "description": [
-      "Coordinated with department heads to assess talent and training needs",
-      "Implemented a new benefits plan, improving employee satisfaction by 9%",
-      "Maintained accurate HR records and updated databases using Microsoft Office"
-    ],
-    "technologies": ["HR Records", "Benefits Planning", "Microsoft Office", "Talent Assessment"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
   }
 ]

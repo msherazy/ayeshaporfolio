@@ -56,14 +56,7 @@ export function Skills() {
   useEffect(() => {
     const fetchSkillsData = async () => {
       try {
-        const data = await skillCategoriesService?.getSkillCategories();
-        if (data && data.length > 0) {
-          // Sort by order field
-          const sortedData = data.sort((a, b) => (a.order || 0) - (b.order || 0));
-          setSkillsData(sortedData);
-        } else {
           setSkillsData(fallbackData);
-        }
       } catch (error) {
         console.error('Error fetching skills data:', error);
         setSkillsData(fallbackData);
@@ -114,7 +107,9 @@ export function Skills() {
 
   // Generate technologies list from all skills for the technology cloud
   const technologies = skillsData.reduce((acc: string[], category) => {
-    return [...acc, ...category.skills];
+    // Add skills from this category that aren't already in the accumulator
+    const newSkills = category.skills.filter(skill => !acc.includes(skill));
+    return [...acc, ...newSkills];
   }, []);
 
   // Map technologies to icons
