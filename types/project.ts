@@ -4,7 +4,7 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
-  github: string;
+  github?: string; // Make github optional
   demo?: string; // Make demo optional
   featured: boolean;
   createdAt?: Date;
@@ -16,11 +16,11 @@ export interface CreateProjectData {
   description: string;
   image: string;
   technologies: string[];
-  github: string;
+  github?: string; // Make github optional
   demo?: string; // Make demo optional
   featured: boolean;
 }
 
 export interface UpdateProjectData extends Partial<CreateProjectData> {
   id: string;
-} 
+}

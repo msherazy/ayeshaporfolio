@@ -9,22 +9,6 @@ const convertTimestamp = (timestamp: any) => {
 };
 
 export class ProjectService {
-  // Get all projects
-  static async getAllProjects(): Promise<Project[]> {
-    try {
-      const response = await fetch('/api/projects');
-      const projects = await response.json();
-      return projects.map((proj: any) => ({
-        ...proj,
-        createdAt: convertTimestamp(proj.createdAt),
-        updatedAt: convertTimestamp(proj.updatedAt),
-      }));
-    } catch (error) {
-      console.error('Error getting projects:', error);
-      return [];
-    }
-  }
-
   // Get project by ID
   static async getProjectById(id: string): Promise<Project | null> {
     try {
