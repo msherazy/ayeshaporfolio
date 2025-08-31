@@ -6,43 +6,24 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayesha Fayaz | Marketing & Admin Professional",
+  title: "Ayesha Fayaz - Marketing & Admin Professional",
   description:
-    "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Based in Dubai, UAE.",
+    "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
   keywords: [
-    "marketing",
-    "admin",
-    "HR assistant",
-    "real estate",
-    "client engagement",
-    "social media",
-    "conveyancer",
+    "Ayesha Fayaz",
+    "Marketing Professional",
+    "Admin Professional",
+    "Client Engagement",
+    "Real Estate Operations",
+    "HR Processes",
     "Dubai",
     "UAE",
-    "portfolio",
+    "Portfolio",
   ],
   authors: [{ name: "Ayesha Fayaz" }],
   creator: "Ayesha Fayaz",
   publisher: "Ayesha Fayaz",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL("https://ayeshafayyaz.me"),
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/favicon/favicon.svg", color: "#3b82f6" },
-    ],
-  },
-  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -53,20 +34,20 @@ export const metadata: Metadata = {
     siteName: "Ayesha Fayaz Portfolio",
     images: [
       {
-        url: "https://ayeshafayyaz.me/og-image-square.png",
+        url: "https://ayeshafayyaz.me/og-image-whatsapp.jpg",
         width: 1200,
-        height: 1200,
+        height: 630,
         alt: "Ayesha Fayaz - Marketing & Admin Professional Portfolio",
-        type: "image/png",
+        type: "image/jpeg",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Ayesha Fayaz - Marketing & Admin Professional",
     description:
       "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
-    images: ["https://ayeshafayyaz.me/og-image-square.png"],
+    images: ["https://ayeshafayyaz.me/og-image-whatsapp.jpg"],
     creator: "@ayeshafayaz",
     site: "@ayeshafayaz",
   },
@@ -84,6 +65,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ayeshafayyaz.me",
   },
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/favicon/favicon.svg", color: "#3b82f6" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   other: {
     "msapplication-TileColor": "#3b82f6",
     "theme-color": "#3b82f6",
@@ -108,20 +102,18 @@ export default function RootLayout({
         <meta name='msapplication-config' content='/browserconfig.xml' />
         
         {/* WhatsApp and Meta specific meta tags */}
+        <meta property='og:image' content='https://ayeshafayyaz.me/og-image-whatsapp.jpg' />
         <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='1200' />
-        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:type' content='image/jpeg' />
         <meta property='og:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
         
         {/* Additional social media meta tags */}
         <meta name='twitter:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
         <meta name='twitter:site' content='@ayeshafayaz' />
         
-        {/* WhatsApp specific */}
-        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image-square.png' />
-        
-        {/* LinkedIn specific */}
-        <meta property='og:image:url' content='https://ayeshafayyaz.me/og-image-square.png' />
+        {/* WhatsApp specific - ensure proper image display */}
+        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image-whatsapp.jpg' />
         
         {/* Additional OG tags for better sharing */}
         <meta property='og:description' content='Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.' />

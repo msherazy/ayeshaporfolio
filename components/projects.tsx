@@ -10,7 +10,7 @@ import { Project } from "@/types/project";
 // Static projects data
 const projectsData: Project[] = [
     {
-        title: "Marketing Campaign Management Dashboard",
+        title: "Campaign Management Dashboard",
         description: "Developed an integrated dashboard for tracking multi-channel marketing campaigns, including social media performance, email metrics, and ROI analysis across different market segments.",
         image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600",
         technologies: ["Data Visualization", "Campaign Analytics", "Marketing Automation", "PowerBI", "Excel"],
@@ -148,14 +148,14 @@ export function Projects() {
 									{/* Content container with flex-grow and fixed structure */}
 									<CardContent className="p-6 relative z-10 flex flex-col flex-grow">
 										{/* Title - Fixed height area */}
-										<div className="h-16 mb-3 flex items-start">
+										<div className="h-16 mb-2 flex items-start">
 											<h3 className="text-xl font-semibold text-[#1d3557] dark:text-[#f1faee] line-clamp-2 leading-tight">
 												{project.title}
 											</h3>
 										</div>
 										
 										{/* Description - Fixed height area */}
-										<div className="h-20 mb-5 flex items-start">
+										<div className="h-20 mb-4 flex items-start">
 											<p className="text-[#1d3557]/80 dark:text-[#f1faee]/80 text-sm line-clamp-4 leading-relaxed">
 												{project.description}
 											</p>
@@ -187,7 +187,7 @@ export function Projects() {
 													asChild
 												>
 													<a
-														href={project.demo || project.github}
+														href="https://drive.google.com/drive/folders/1EGhhAKE0RVOT-t84LQnZNP2BkkwjtH4o"
 														target="_blank"
 														rel="noopener noreferrer"
 													>
