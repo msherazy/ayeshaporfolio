@@ -84,75 +84,112 @@ export function Projects() {
 
 	return (
 		<section id="projects" ref={sectionRef} className="py-20 relative">
-			{/* Section background with subtle overlay */}
+			{/* Material Design 3 Background Elements */}
 			<div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
+			<div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-3xl opacity-30 z-0"></div>
+			<div className="absolute bottom-40 left-10 w-96 h-96 bg-gradient-to-tr from-pink-500/10 to-orange-500/10 rounded-full blur-3xl opacity-30 z-0"></div>
 
 			<div className="container mx-auto px-4">
 				<div className="max-w-7xl mx-auto">
-					<div className="text-center mb-16">
-						<h2 className="text-4xl md:text-5xl font-bold mb-4 text-white relative z-10">
+					{/* Material Design 3 Typography */}
+					<div className="text-center mb-16 relative z-10">
+						<h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
 							Featured Projects
 						</h2>
-						<p className="text-xl text-white/80 relative z-10">
+						<p className="text-xl text-white/80 max-w-2xl mx-auto">
 							A showcase of my recent work and side projects
 						</p>
+						{/* Material Design 3 decorative element */}
+						<div className="h-1 w-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto mt-8"></div>
 					</div>
 
+					{/* Material Design 3 Card Grid */}
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{projects.map((project, index) => (
-							<Card
-								key={project.title}
-								className={`group glass macos-card border-white/20 overflow-hidden relative z-10 ${
-									project.featured ? "md:col-span-2 lg:col-span-1" : ""
-								}`}
-							>
-								<div className="relative overflow-hidden">
-									<img
-										src={project.image}
-										alt={project.title}
-										className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-									/>
-									<div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-								</div>
-								<CardContent className="p-6">
-									<h3 className="text-xl font-semibold mb-3 text-white">
-										{project.title}
-									</h3>
-									<p className="text-white/80 mb-4 line-clamp-3">
-										{project.description}
-									</p>
-									<div className="flex flex-wrap gap-2 mb-4">
-										{project.technologies.map((tech) => (
-											<Badge
-												key={tech}
-												variant="secondary"
-												className="text-xs bg-white/20 text-white border-white/30"
-											>
-												{tech}
-											</Badge>
-										))}
+						{projects.map((project, index) => {
+							// Alternate gradient colors for cards
+							const getCardGradient = (index: number) => {
+								const gradients = [
+									"from-purple-500/10 to-indigo-500/10",
+									"from-teal-500/10 to-emerald-500/10",
+									"from-amber-500/10 to-orange-500/10",
+									"from-blue-500/10 to-sky-500/10",
+									"from-pink-500/10 to-rose-500/10",
+									"from-indigo-500/10 to-blue-500/10"
+								];
+								return gradients[index % gradients.length];
+							};
+							
+							return (
+								<Card
+									key={project.title}
+									className={`group overflow-hidden relative z-10 border-none shadow-lg transition-all duration-300 hover:shadow-xl transform hover:translate-y-[-4px] ${
+										project.featured ? "md:col-span-2 lg:col-span-1" : ""
+									}`}
+									style={{
+										borderRadius: '24px',
+										background: 'rgba(255, 255, 255, 0.08)',
+										backdropFilter: 'blur(20px)'
+									}}
+								>
+									{/* Card background gradient */}
+									<div className={`absolute inset-0 bg-gradient-to-br ${getCardGradient(index)} opacity-30 z-0`} />
+									
+									{/* Image container with Material Design 3 styling */}
+									<div className="relative overflow-hidden">
+										<img
+											src={project.image}
+											alt={project.title}
+											className="w-full h-56 object-cover transition-all duration-500 group-hover:scale-110"
+											style={{ objectPosition: 'center' }}
+										/>
+										<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 									</div>
-									{project.demo && (
-										<div className="flex">
-											<Button
-												size="sm"
-												className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
-												asChild
-											>
-												<a
-													href={project.demo}
-													target="_blank"
-													rel="noopener noreferrer"
+									
+									<CardContent className="p-6 relative z-10">
+										{/* Material Design 3 Typography */}
+										<h3 className="text-xl font-semibold mb-3 text-white">
+											{project.title}
+										</h3>
+										<p className="text-white/80 mb-5 line-clamp-3">
+											{project.description}
+										</p>
+										
+										{/* Material Design 3 Chips */}
+										<div className="flex flex-wrap gap-2 mb-5">
+											{project.technologies.map((tech) => (
+												<Badge
+													key={tech}
+													variant="secondary"
+													className="text-xs bg-white/15 text-white border-none px-3 py-1 rounded-full transition-all duration-300 hover:bg-white/25"
 												>
-													<Eye className="h-4 w-4 mr-2" />
-													View Project
-												</a>
-											</Button>
+													{tech}
+												</Badge>
+											))}
 										</div>
-									)}
-								</CardContent>
-							</Card>
-						))}
+										
+										{/* Material Design 3 Button */}
+										{(project.demo || project.github) && (
+											<div className="flex">
+												<Button
+													size="lg"
+													className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-none rounded-full py-6 transition-all duration-300 shadow-md hover:shadow-lg"
+													asChild
+												>
+													<a
+														href={project.demo || project.github}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														<Eye className="h-5 w-5 mr-2" />
+														View Project
+													</a>
+												</Button>
+											</div>
+										)}
+									</CardContent>
+								</Card>
+							);
+						})}
 					</div>
 				</div>
 			</div>

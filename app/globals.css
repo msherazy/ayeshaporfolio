@@ -4,11 +4,21 @@
 
 /* macOS-style variables */
 :root {
-  --macos-bg-light: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --macos-bg-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  --glass-bg-light: rgba(255, 255, 255, 0.25);
+  /* New color palette */
+  --red-pantone: #e63946;
+  --honeydew: #f1faee;
+  --non-photo-blue: #a8dadc;
+  --cerulean: #457b9d;
+  --berkeley-blue: #1d3557;
+  
+  /* Background gradients using the new palette */
+  --macos-bg-light: linear-gradient(135deg, var(--cerulean) 0%, var(--berkeley-blue) 100%);
+  --macos-bg-dark: linear-gradient(135deg, var(--berkeley-blue) 0%, #0f2942 50%, #071a2e 100%);
+  
+  /* Glass effects */
+  --glass-bg-light: rgba(241, 250, 238, 0.25);
   --glass-bg-dark: rgba(0, 0, 0, 0.25);
-  --glass-border-light: rgba(255, 255, 255, 0.18);
+  --glass-border-light: rgba(241, 250, 238, 0.18);
   --glass-border-dark: rgba(255, 255, 255, 0.1);
 }
 
@@ -84,6 +94,24 @@
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33% { transform: translateY(-30px) rotate(120deg); }
   66% { transform: translateY(20px) rotate(240deg); }
+}
+
+@keyframes slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slow-spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 30s linear infinite;
+}
+
+.animate-slow-spin-reverse {
+  animation: slow-spin-reverse 30s linear infinite;
 }
 
 /* macOS-style card hover effects */

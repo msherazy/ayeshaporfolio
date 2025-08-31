@@ -214,100 +214,15 @@ export function Contact() {
             </p>
           </div>
 
-          <div className='grid lg:grid-cols-2 gap-12'>
-            <div>
-              <Card className='glass macos-card border-white/20 relative z-10'>
+          <div className='grid lg:grid-cols-3 gap-8 items-stretch'>
+            {/* Contact Information Card - Now on the left for better visual hierarchy */}
+            <div className='lg:col-span-1'>
+              <Card className='glass macos-card border-[#a8dadc]/20 relative z-10 h-full' style={{ background: 'rgba(241, 250, 238, 0.05)' }}>
                 <CardContent className='p-8'>
-                  <h3 className='text-2xl font-semibold mb-6 text-white'>
-                    Send me a message
-                  </h3>
-                  <form onSubmit={handleSubmit} className='space-y-6'>
-                    <div className='grid sm:grid-cols-2 gap-4'>
-                      <div className='space-y-2'>
-                        <Label htmlFor='name' className='text-white/90'>
-                          Name
-                        </Label>
-                        <Input
-                          id='name'
-                          name='name'
-                          value={formData.name}
-                          onChange={handleChange}
-                          placeholder='Your name'
-                          className='glass border-white/30 text-white placeholder:text-white/50'
-                          required
-                        />
-                      </div>
-                      <div className='space-y-2'>
-                        <Label htmlFor='email' className='text-white/90'>
-                          Email
-                        </Label>
-                        <Input
-                          id='email'
-                          name='email'
-                          type='email'
-                          value={formData.email}
-                          onChange={handleChange}
-                          placeholder='your@email.com'
-                          className='glass border-white/30 text-white placeholder:text-white/50'
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className='space-y-2'>
-                      <Label htmlFor='subject' className='text-white/90'>
-                        Subject
-                      </Label>
-                      <Input
-                        id='subject'
-                        name='subject'
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="What's this about?"
-                        className='glass border-white/30 text-white placeholder:text-white/50'
-                        required
-                      />
-                    </div>
-                    <div className='space-y-2'>
-                      <Label htmlFor='message' className='text-white/90'>
-                        Message
-                      </Label>
-                      <Textarea
-                        id='message'
-                        name='message'
-                        value={formData.message}
-                        onChange={handleChange}
-                        placeholder='Tell me about your project...'
-                        className='glass border-white/30 text-white placeholder:text-white/50'
-                        rows={5}
-                        required
-                      />
-                    </div>
-                    <Button
-                      type='submit'
-                      disabled={isSubmitting}
-                      className='w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white'
-                    >
-                      {isSubmitting ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          <Send className='h-4 w-4 mr-2' />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className='space-y-8'>
-              <Card className='glass macos-card border-white/20 relative z-10'>
-                <CardContent className='p-8'>
-                  <h3 className='text-2xl font-semibold mb-6 text-white'>
+                  <h3 className='text-2xl font-semibold mb-6 text-[#1d3557] dark:text-[#f1faee]'>
                     Contact Information
                   </h3>
-                  <div className='space-y-4'>
+                  <div className='space-y-6'>
                     {contactInfo.map((info, index) => (
                       <a
                         key={index}
@@ -320,9 +235,9 @@ export function Contact() {
                             ? "noopener noreferrer"
                             : undefined
                         }
-                        className='flex items-center space-x-4 p-4 rounded-lg hover:bg-white/10 transition-colors duration-200'
+                        className='flex items-center space-x-4 p-4 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:translate-x-1'
                       >
-                        <div className='p-3 bg-white/20 rounded-full'>
+                        <div className='p-3 bg-white/20 rounded-full shadow-lg'>
                           <info.icon className='h-6 w-6 text-white' />
                         </div>
                         <div>
@@ -334,6 +249,93 @@ export function Contact() {
                       </a>
                     ))}
                   </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Form - Now takes more space */}
+            <div className='lg:col-span-2'>
+              <Card className='glass macos-card border-[#a8dadc]/20 relative z-10' style={{ background: 'rgba(241, 250, 238, 0.05)' }}>
+                <CardContent className='p-8'>
+                  <h3 className='text-2xl font-semibold mb-6 text-[#1d3557] dark:text-[#f1faee]'>
+                    Send me a message
+                  </h3>
+                  <form onSubmit={handleSubmit} className='space-y-6'>
+                    <div className='grid sm:grid-cols-2 gap-6'>
+                      <div className='relative'>
+                                              <Label htmlFor='name' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                        Name
+                      </Label>
+                      <Input
+                        id='name'
+                        name='name'
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder='Your name'
+                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                        required
+                      />
+                      </div>
+                      <div className='relative'>
+                        <Label htmlFor='email' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                          Email
+                        </Label>
+                        <Input
+                          id='email'
+                          name='email'
+                          type='email'
+                          value={formData.email}
+                          onChange={handleChange}
+                          placeholder='your@email.com'
+                          className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div className='relative'>
+                      <Label htmlFor='subject' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                        Subject
+                      </Label>
+                      <Input
+                        id='subject'
+                        name='subject'
+                        value={formData.subject}
+                        onChange={handleChange}
+                        placeholder="What's this about?"
+                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                        required
+                      />
+                    </div>
+                    <div className='relative'>
+                      <Label htmlFor='message' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                        Message
+                      </Label>
+                      <Textarea
+                        id='message'
+                        name='message'
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder='Tell me about your project...'
+                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                        rows={5}
+                        required
+                      />
+                    </div>
+                    <Button
+                      type='submit'
+                      disabled={isSubmitting}
+                      className='w-full bg-gradient-to-r from-[#457b9d] to-[#1d3557] hover:from-[#3d6d8c] hover:to-[#152843] text-[#f1faee] py-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]'
+                    >
+                      {isSubmitting ? (
+                        "Sending..."
+                      ) : (
+                        <>
+                          <Send className='h-5 w-5 mr-2' />
+                          Send Message
+                        </>
+                      )}
+                    </Button>
+                  </form>
                 </CardContent>
               </Card>
             </div>

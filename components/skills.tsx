@@ -35,18 +35,19 @@ export function Skills() {
     const [skillsData, setSkillsData] = useState<SkillCategory[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // Fallback data with updated structure
+    // Updated Skills & Expertise data with professional capabilities
     const fallbackData: SkillCategory[] = [
         {
             id: "fallback-1",
             title: "Administrative Skills",
             icon: "📋",
             skills: [
-                "Microsoft Office Suite",
                 "Document Control",
                 "HR Support",
                 "Cross-Departmental Coordination",
                 "Legal Recordkeeping",
+                "CRM & Property Management Systems",
+                "Compliance & Regulatory Knowledge"
             ],
             order: 0,
             createdAt: new Date(),
@@ -57,10 +58,10 @@ export function Skills() {
             title: "Marketing & Content",
             icon: "🎨",
             skills: [
-                "Design Tools (Canva, Adobe)",
                 "Social Media Management",
                 "Content Creation",
                 "Digital Marketing",
+                "Content & Digital Marketing Strategy"
             ],
             order: 1,
             createdAt: new Date(),
@@ -70,7 +71,15 @@ export function Skills() {
             id: "fallback-3",
             title: "Professional Attributes",
             icon: "🤝",
-            skills: ["Client Service Orientation", "Professionalism", "Work Ethic", "Versatility"],
+            skills: [
+                "Client Service Orientation", 
+                "Professionalism", 
+                "Work Ethic", 
+                "Versatility",
+                "Digital Transformation & Process Automation",
+                "Data Management & Reporting",
+                "Customer Experience (CX) Tools"
+            ],
             order: 2,
             createdAt: new Date(),
             updatedAt: new Date()
@@ -114,39 +123,47 @@ export function Skills() {
     // Icon mapping for skills
     const skillIconMap: Record<string, React.ElementType> = {
         // Administrative Skills
-        "Microsoft Office Suite": Database,
         "Document Control": FileText,
         "HR Support": Users,
         "Cross-Departmental Coordination": GitBranch,
         "Legal Recordkeeping": FileSearch,
+        "CRM & Property Management Systems": Building,
+        "Compliance & Regulatory Knowledge": ShieldCheck,
 
         // Marketing & Content
-        "Design Tools (Canva, Adobe)": Palette,
         "Social Media Management": Smartphone,
         "Content Creation": PenTool,
         "Digital Marketing": Megaphone,
+        "Content & Digital Marketing Strategy": Globe,
 
         // Professional Attributes
         "Client Service Orientation": Handshake,
         "Professionalism": ShieldCheck,
         "Work Ethic": Clock,
         "Versatility": Settings,
+        "Digital Transformation & Process Automation": Zap,
+        "Data Management & Reporting": BarChart3,
+        "Customer Experience (CX) Tools": Users,
 
-        // Additional mappings for future use
-        "Real Estate Operations": Building,
-        "Property Conveyancing": FileText,
-        "Research & Data Analysis": BarChart3,
-        "Event Management": Calendar,
-        "Web Development": Code,
-        "Mobile Development": Smartphone,
-        "UI/UX Design": Palette,
-        "Email Marketing": Mail,
-        "SEO": Globe,
-        "Performance Optimization": Zap,
-        "Cybersecurity": Lock,
-        "Cloud Services": Cloud,
-        "Server Management": Server,
-        "Quality Assurance": Monitor
+        // Additional mappings for tools
+        "Microsoft Office Suite": Database,
+        "Google Workspace": Cloud,
+        "Canva": Palette,
+        "Adobe Photoshop": Palette,
+        "Adobe Lightroom": Palette,
+        "Salesforce": Building,
+        "Zoho CRM": Building,
+        "Property Finder": Building,
+        "Bayut Tools": Building,
+        "SAP SuccessFactors": Database,
+        "Oracle HR": Database,
+        "Microsoft Dynamics": Database,
+        "Meta Business Suite": Globe,
+        "Google Ads": Globe,
+        "Mailchimp": Mail,
+        "Excel (Advanced)": BarChart3,
+        "Power BI (Entry-Level)": BarChart3,
+        "Google Analytics": BarChart3
     };
 
     // Get icon component for a skill
@@ -252,39 +269,73 @@ export function Skills() {
             <div className='container mx-auto px-4'>
                 <div className='max-w-6xl mx-auto'>
                     <div className='text-center mb-16'>
-                        <h2 className='text-4xl md:text-5xl font-bold mb-4 text-white relative z-10'>
+                        <h2 className='text-4xl md:text-5xl font-bold mb-4 text-[#1d3557] dark:text-[#f1faee] relative z-10'>
                             Skills & Expertise
                         </h2>
-                        <p className='text-xl text-white/80 relative z-10'>
+                        <p className='text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80 relative z-10'>
                             My professional capabilities across different domains
                         </p>
                     </div>
 
-                    {/* Skill Categories */}
-                    <div className='grid md:grid-cols-2 gap-8 mb-16'>
-                        {skillsData.map((category) => (
+                    {/* Skill Categories - Material Design 3 Style */}
+                                        <div className='grid md:grid-cols-3 gap-6 mb-16'>
+                        {skillsData.map((category) => {
+                            // Define gradient based on category
+                            const getGradient = () => {
+                                switch(category.title) {
+                                    case "Administrative Skills":
+                                        return "linear-gradient(135deg, #457b9d 0%, #1d3557 100%)";
+                                    case "Marketing & Content":
+                                        return "linear-gradient(135deg, #a8dadc 0%, #457b9d 100%)";
+                                    case "Professional Attributes":
+                                        return "linear-gradient(135deg, #e63946 0%, #457b9d 100%)";
+                                    default:
+                                        return "linear-gradient(135deg, #457b9d 0%, #1d3557 100%)";
+                                }
+                            };
+                            
+                            return (
                             <Card
                                 key={category.id}
-                                className={`glass macos-card border transition-all duration-300 hover:scale-[1.02] ${getCategoryColor(category.title)}`}
-                            >
-                                <CardContent className='p-6'>
-                                    <div className='flex items-center mb-6'>
-                                        <span className='text-2xl mr-3'>{category.icon}</span>
-                                        <h3 className='text-xl font-semibold text-white'>
+                                    className="glass border-none shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-xl h-full"
+                                    style={{
+                                        borderRadius: '28px',
+                                        background: 'rgba(241, 250, 238, 0.08)',
+                                        backdropFilter: 'blur(20px)'
+                                    }}
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-br opacity-20 z-0"
+                                        style={{
+                                            background: getGradient()
+                                        }}
+                                    />
+                                    
+                                    <CardContent className='p-8 relative z-10'>
+                                        <div className='flex items-center mb-8'>
+                                            <div className="p-3 rounded-full mr-4" 
+                                                style={{
+                                                    background: getGradient(),
+                                                    boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
+                                                }}
+                                            >
+                                                <span className='text-2xl'>{category.icon}</span>
+                                            </div>
+                                            <h3 className='text-xl font-semibold text-[#1d3557] dark:text-[#f1faee]'>
                                             {category.title}
                                         </h3>
                                     </div>
 
-                                    <div className='space-y-3'>
+                                        <div className='space-y-4'>
                                         {category.skills.map((skill, skillIndex) => (
                                             <div
                                                 key={skillIndex}
-                                                className='flex items-center p-3 rounded-lg bg-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/20 transition-all duration-200'
+                                                    className='flex items-center p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-all duration-300 transform hover:translate-y-[-2px]'
+                                                    style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                                             >
-                                                <div className='mr-3 text-white/80'>
+                                                    <div className='mr-4 p-2 rounded-full bg-white/15'>
                                                     {getSkillIcon(skill)}
                                                 </div>
-                                                <span className='text-sm font-medium text-white/90'>
+                                                    <span className='text-sm font-medium text-[#1d3557] dark:text-[#f1faee]'>
                           {skill}
                         </span>
                                             </div>
@@ -292,32 +343,140 @@ export function Skills() {
                                     </div>
                                 </CardContent>
                             </Card>
-                        ))}
+                            );
+                        })}
                     </div>
 
-                    {/* Technology Stack */}
-                    {technologies.length > 0 && (
-                        <Card className='glass macos-card border-white/20 relative z-10'>
-                            <CardContent className='p-8'>
-                                <h3 className='text-2xl font-semibold mb-6 text-center text-white'>
+                    {/* Technology Stack - Material Design 3 Style with Grouped Categories */}
+                    <Card 
+                        className='relative z-10 border-none shadow-lg overflow-hidden mt-16'
+                        style={{
+                            borderRadius: '28px',
+                            background: 'rgba(241, 250, 238, 0.08)',
+                            backdropFilter: 'blur(20px)'
+                        }}
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#a8dadc]/20 to-[#1d3557]/20 opacity-30 z-0" />
+                        
+                        <CardContent className='p-10 relative z-10'>
+                            <h3 className='text-2xl font-semibold mb-8 text-center text-[#1d3557] dark:text-[#f1faee]'>
                                     Technology Stack
                                 </h3>
-                                <div className='flex flex-wrap gap-3 justify-center'>
-                                    {technologies.map((tech, index) => (
+                            
+                            {/* Office & Productivity */}
+                            <div className="mb-10">
+                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
+                                    Office & Productivity
+                                </h4>
+                                <div className='flex flex-wrap gap-3'>
+                                    {["Microsoft Office Suite", "Google Workspace"].map((tech, index) => (
                                         <div
                                             key={index}
-                                            className='flex items-center px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm text-white/90 backdrop-blur-sm hover:bg-white/20 transition-all duration-200 cursor-pointer group'
+                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#457b9d]/30 to-[#a8dadc]/30 hover:from-[#457b9d]/40 hover:to-[#a8dadc]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
                                         >
-                      <span className='mr-2 text-white/80 group-hover:text-white transition-colors'>
-                        {getTechIcon(tech.name)}
-                      </span>
-                                            {tech.name}
+                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
+                                                {getSkillIcon(tech)}
+                                            </span>
+                                            {tech}
                                         </div>
                                     ))}
                                 </div>
+                            </div>
+                            
+                            {/* Design Tools */}
+                            <div className="mb-10">
+                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
+                                    Design Tools
+                                </h4>
+                                <div className='flex flex-wrap gap-3'>
+                                    {["Canva", "Adobe Photoshop", "Adobe Lightroom"].map((tech, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#e63946]/30 to-[#457b9d]/30 hover:from-[#e63946]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+                                        >
+                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
+                                                {getSkillIcon(tech)}
+                                            </span>
+                                            {tech}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* CRM & ERP */}
+                            <div className="mb-10">
+                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
+                                    CRM & ERP
+                                </h4>
+                                <div className='flex flex-wrap gap-3'>
+                                    {[
+                                        "Salesforce", 
+                                        "Zoho CRM", 
+                                        "Property Finder", 
+                                        "Bayut Tools", 
+                                        "SAP SuccessFactors", 
+                                        "Oracle HR", 
+                                        "Microsoft Dynamics"
+                                    ].map((tech, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#1d3557]/30 to-[#457b9d]/30 hover:from-[#1d3557]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+                                        >
+                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
+                                                {getSkillIcon(tech)}
+                                            </span>
+                                            {tech}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* Marketing & Communication */}
+                            <div className="mb-10">
+                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
+                                    Marketing & Communication
+                                </h4>
+                                <div className='flex flex-wrap gap-3'>
+                                    {["Meta Business Suite", "Google Ads", "Mailchimp"].map((tech, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#a8dadc]/30 to-[#457b9d]/30 hover:from-[#a8dadc]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+                                        >
+                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
+                                                {getSkillIcon(tech)}
+                                            </span>
+                                            {tech}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            
+                            {/* Data & Analytics */}
+                            <div>
+                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
+                                    Data & Analytics
+                                </h4>
+                                <div className='flex flex-wrap gap-3'>
+                                    {["Excel (Advanced)", "Power BI (Entry-Level)", "Google Analytics"].map((tech, index) => (
+                                        <div
+                                            key={index}
+                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#457b9d]/30 to-[#1d3557]/30 hover:from-[#457b9d]/40 hover:to-[#1d3557]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
+                                        >
+                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
+                                                {getSkillIcon(tech)}
+                      </span>
+                                            {tech}
+                                        </div>
+                                    ))}
+                                </div>
+                                </div>
                             </CardContent>
                         </Card>
-                    )}
                 </div>
             </div>
         </section>
