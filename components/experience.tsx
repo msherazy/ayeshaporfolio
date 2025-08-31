@@ -94,43 +94,53 @@ export function Experience() {
   return (
     <section id='experience' ref={sectionRef} className='py-20 relative'>
       {/* Section background with subtle overlay */}
-      <div className='absolute inset-0 bg-black/10 backdrop-blur-sm'></div>
+      <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
+      <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-[#a8dadc]/10 to-[#457b9d]/10 rounded-full blur-3xl opacity-30 z-0"></div>
+      <div className="absolute bottom-40 left-10 w-96 h-96 bg-gradient-to-tr from-[#e63946]/10 to-[#1d3557]/10 rounded-full blur-3xl opacity-30 z-0"></div>
 
       <div className='container mx-auto px-4'>
         <div className='max-w-4xl mx-auto'>
           <div className='text-center mb-16'>
-            <h2 className='text-4xl md:text-5xl font-bold mb-4 text-white relative z-10'>
+            <h2 className='text-4xl md:text-5xl font-bold mb-4 text-[#1d3557] dark:text-[#f1faee] relative z-10'>
               Work Experience
             </h2>
-            <p className='text-xl text-white/80 relative z-10'>
+            <p className='text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80 relative z-10'>
               My professional journey and achievements
             </p>
           </div>
 
           {loading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="text-xl text-white/80">Đang tải experiences...</div>
+              <div className="text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80">Loading experiences...</div>
             </div>
           ) : (
             <div className='relative'>
               {/* Timeline line */}
-              <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-white/30'></div>
+              <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-[#a8dadc]/30'></div>
 
               <div className='space-y-12'>
                 {experiences.map((exp, index) => (
                   <div key={index} className='relative flex items-start'>
                     {/* Timeline dot */}
-                    <div className='absolute left-6 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white/30 shadow-lg'></div>
+                    <div className='absolute left-6 w-4 h-4 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full border-4 border-[#a8dadc]/30 shadow-lg'></div>
 
                     <div className='ml-16 w-full'>
-                      <Card className='glass macos-card border-white/20 relative z-10'>
-                        <CardContent className='p-6'>
+                      <Card 
+                        className='border-none shadow-lg relative z-10 overflow-hidden'
+                        style={{
+                          borderRadius: '24px',
+                          background: 'rgba(241, 250, 238, 0.08)',
+                          backdropFilter: 'blur(20px)'
+                        }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
+                        <CardContent className='p-6 relative z-10'>
                           <div className='flex flex-col md:flex-row md:items-center md:justify-between mb-4'>
                             <div>
-                              <h3 className='text-xl font-semibold text-white mb-1'>
+                              <h3 className='text-xl font-semibold text-[#1d3557] dark:text-[#f1faee] mb-1'>
                                 {exp.title}
                               </h3>
-                              <div className='flex items-center space-x-4 text-white/70'>
+                              <div className='flex items-center space-x-4 text-[#1d3557]/70 dark:text-[#f1faee]/70'>
                                 <div className='flex items-center space-x-1'>
                                   <Building className='h-4 w-4' />
                                   <span>{exp.company}</span>
@@ -141,7 +151,7 @@ export function Experience() {
                                 </div>
                               </div>
                             </div>
-                            <div className='flex items-center space-x-1 text-yellow-400 mt-2 md:mt-0'>
+                            <div className='flex items-center space-x-1 text-[#e63946] mt-2 md:mt-0'>
                               <Calendar className='h-4 w-4' />
                               <span className='text-sm font-medium'>
                                 {exp.period}
@@ -156,9 +166,9 @@ export function Experience() {
                                   {exp.description.map((item, itemIndex) => (
                                     <li
                                       key={itemIndex}
-                                      className='text-white/80 flex items-start'
+                                      className='text-[#1d3557]/80 dark:text-[#f1faee]/80 flex items-start'
                                     >
-                                      <span className='text-yellow-400 mr-2 mt-1.5'>
+                                      <span className='text-[#e63946] mr-2 mt-1.5'>
                                         •
                                       </span>
                                       {item}
@@ -166,7 +176,7 @@ export function Experience() {
                                   ))}
                                 </ul>
                               ) : (
-                                <p className='text-white/80'>{exp.description}</p>
+                                <p className='text-[#1d3557]/80 dark:text-[#f1faee]/80'>{exp.description}</p>
                               )}
                             </div>
                           )}
@@ -176,7 +186,7 @@ export function Experience() {
                               <Badge
                                 key={tech}
                                 variant='secondary'
-                                className='text-xs bg-white/20 text-white border-white/30'
+                                className='text-xs bg-[#a8dadc]/15 text-[#1d3557] dark:text-[#f1faee] border-[#a8dadc]/30 rounded-full px-3 py-1'
                               >
                                 {tech}
                               </Badge>

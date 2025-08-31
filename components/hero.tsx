@@ -232,14 +232,22 @@ export function Hero() {
               </a>
             )}
             
-            {/* Scroll indicator with Material Design 3 styling */}
-            <div className='bg-[#a8dadc]/10 hover:bg-[#a8dadc]/20 text-[#1d3557] dark:text-[#f1faee] p-4 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg backdrop-blur-sm cursor-pointer'
+          </div>
+
+          {/* Separate scroll indicator with smooth bouncing animation */}
+          <div className='flex justify-center mt-8 animate-slide-up animation-delay-1000'>
+            <div 
+              className='bg-[#a8dadc]/15 hover:bg-[#a8dadc]/25 text-[#1d3557] dark:text-[#f1faee] p-4 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg backdrop-blur-sm cursor-pointer animate-bounce'
               onClick={() => {
                 const aboutSection = document.getElementById('about');
                 aboutSection?.scrollIntoView({ behavior: 'smooth' });
               }}
+              style={{
+                animationDuration: '2s',
+                animationIterationCount: 'infinite'
+              }}
             >
-              <ArrowDown className='h-6 w-6 text-white' />
+              <ArrowDown className='h-6 w-6' />
             </div>
           </div>
         </div>

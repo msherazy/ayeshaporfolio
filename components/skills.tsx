@@ -35,10 +35,16 @@ export function Skills() {
     const [skillsData, setSkillsData] = useState<SkillCategory[]>([]);
     const [loading, setLoading] = useState(true);
 
-    // Updated Skills & Expertise data with professional capabilities
-    const fallbackData: SkillCategory[] = [
+    // Updated Skills & Expertise data organized into 2 parent categories
+    const parentCategories = [
         {
-            id: "fallback-1",
+            id: "parent-1",
+            title: "Core Professional Skills",
+            icon: "🏢",
+            description: "Essential business and professional capabilities",
+            subCategories: [
+                {
+                    id: "sub-1",
             title: "Administrative Skills",
             icon: "📋",
             skills: [
@@ -46,59 +52,105 @@ export function Skills() {
                 "HR Support",
                 "Cross-Departmental Coordination",
                 "Legal Recordkeeping",
-                "CRM & Property Management Systems",
-                "Compliance & Regulatory Knowledge"
+                        "CRM & Property Management Systems",
+                        "Compliance & Regulatory Knowledge"
+                    ]
+                },
+                {
+                    id: "sub-2",
+                    title: "Marketing & Content",
+                    icon: "🎨",
+                    skills: [
+                        "Social Media Management",
+                        "Content Creation",
+                        "Digital Marketing",
+                        "Content & Digital Marketing Strategy"
+                    ]
+                },
+                {
+                    id: "sub-3",
+                    title: "Professional Attributes",
+                    icon: "🤝",
+                    skills: [
+                        "Client Service Orientation", 
+                        "Professionalism", 
+                        "Work Ethic", 
+                        "Versatility"
+                    ]
+                },
+                {
+                    id: "sub-4",
+                    title: "Digital & Analytics",
+                    icon: "📊",
+                    skills: [
+                        "Digital Transformation & Process Automation",
+                        "Data Management & Reporting",
+                        "Customer Experience (CX) Tools",
+                        "Business Intelligence"
+                    ]
+                }
             ],
             order: 0,
             createdAt: new Date(),
             updatedAt: new Date()
         },
         {
-            id: "fallback-2",
-            title: "Marketing & Content",
+            id: "parent-2",
+            title: "Technical Tools & Platforms",
+            icon: "🛠️",
+            description: "Software tools and technology platforms",
+            subCategories: [
+                {
+                    id: "tech-1",
+                    title: "Office & Productivity",
+                    icon: "💻",
+                    skills: ["Microsoft Office Suite", "Google Workspace"]
+                },
+                {
+                    id: "tech-2",
+                    title: "Design Tools",
             icon: "🎨",
+                    skills: ["Canva", "Adobe Photoshop", "Adobe Lightroom"]
+                },
+                {
+                    id: "tech-3",
+                    title: "CRM & ERP",
+                    icon: "🏢",
             skills: [
-                "Social Media Management",
-                "Content Creation",
-                "Digital Marketing",
-                "Content & Digital Marketing Strategy"
+                        "Salesforce", 
+                        "Zoho CRM", 
+                        "Property Finder", 
+                        "Bayut Tools", 
+                        "SAP SuccessFactors", 
+                        "Oracle HR", 
+                        "Microsoft Dynamics"
+                    ]
+                },
+                {
+                    id: "tech-4",
+                    title: "Marketing & Communication",
+                    icon: "📢",
+                    skills: ["Meta Business Suite", "Google Ads", "Mailchimp"]
+                },
+                {
+                    id: "tech-5",
+                    title: "Data & Analytics",
+                    icon: "📊",
+                    skills: ["Excel (Advanced)", "Power BI (Entry-Level)", "Google Analytics"]
+                }
             ],
             order: 1,
             createdAt: new Date(),
             updatedAt: new Date()
-        },
-        {
-            id: "fallback-3",
-            title: "Professional Attributes",
-            icon: "🤝",
-            skills: [
-                "Client Service Orientation", 
-                "Professionalism", 
-                "Work Ethic", 
-                "Versatility",
-                "Digital Transformation & Process Automation",
-                "Data Management & Reporting",
-                "Customer Experience (CX) Tools"
-            ],
-            order: 2,
-            createdAt: new Date(),
-            updatedAt: new Date()
-        },
+        }
     ];
 
-    useEffect(() => {
-        const fetchSkillsData = async () => {
-            try {
-                setSkillsData(fallbackData);
-            } catch (error) {
-                console.error('Error fetching skills data:', error);
-                setSkillsData(fallbackData);
-            } finally {
-                setLoading(false);
-            }
-        };
+    // Keep fallbackData for compatibility but it won't be used
+    const fallbackData: SkillCategory[] = [];
 
-        fetchSkillsData();
+    useEffect(() => {
+        // No need to fetch data since we have static parentCategories
+        setLoading(false);
     }, []);
 
     useEffect(() => {
@@ -144,6 +196,7 @@ export function Skills() {
         "Digital Transformation & Process Automation": Zap,
         "Data Management & Reporting": BarChart3,
         "Customer Experience (CX) Tools": Users,
+        "Business Intelligence": BarChart3,
 
         // Additional mappings for tools
         "Microsoft Office Suite": Database,
@@ -261,7 +314,7 @@ export function Skills() {
         );
     }
 
-    return (
+        return (
         <section id='skills' ref={sectionRef} className='py-20 relative'>
             {/* Section background with subtle overlay */}
             <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
@@ -277,26 +330,18 @@ export function Skills() {
                         </p>
                     </div>
 
-                    {/* Skill Categories - Material Design 3 Style */}
-                                        <div className='grid md:grid-cols-3 gap-6 mb-16'>
-                        {skillsData.map((category) => {
-                            // Define gradient based on category
-                            const getGradient = () => {
-                                switch(category.title) {
-                                    case "Administrative Skills":
-                                        return "linear-gradient(135deg, #457b9d 0%, #1d3557 100%)";
-                                    case "Marketing & Content":
-                                        return "linear-gradient(135deg, #a8dadc 0%, #457b9d 100%)";
-                                    case "Professional Attributes":
-                                        return "linear-gradient(135deg, #e63946 0%, #457b9d 100%)";
-                                    default:
-                                        return "linear-gradient(135deg, #457b9d 0%, #1d3557 100%)";
-                                }
+                    {/* Parent Categories - 2 Main Cards */}
+                    <div className='grid md:grid-cols-2 gap-8 mb-16'>
+                        {parentCategories.map((parentCategory, parentIndex) => {
+                            const getParentGradient = () => {
+                                return parentIndex === 0 
+                                    ? "linear-gradient(135deg, #457b9d 0%, #1d3557 100%)"
+                                    : "linear-gradient(135deg, #a8dadc 0%, #457b9d 100%)";
                             };
                             
                             return (
-                            <Card
-                                key={category.id}
+                                <Card
+                                    key={parentCategory.id}
                                     className="glass border-none shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-xl h-full"
                                     style={{
                                         borderRadius: '28px',
@@ -306,177 +351,63 @@ export function Skills() {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br opacity-20 z-0"
                                         style={{
-                                            background: getGradient()
+                                            background: getParentGradient()
                                         }}
                                     />
                                     
                                     <CardContent className='p-8 relative z-10'>
-                                        <div className='flex items-center mb-8'>
-                                            <div className="p-3 rounded-full mr-4" 
+                                        {/* Parent Category Header */}
+                                        <div className='flex items-center mb-6'>
+                                            <div className="p-4 rounded-full mr-4" 
                                                 style={{
-                                                    background: getGradient(),
+                                                    background: getParentGradient(),
                                                     boxShadow: '0 8px 16px rgba(0,0,0,0.2)'
                                                 }}
                                             >
-                                                <span className='text-2xl'>{category.icon}</span>
+                                                <span className='text-3xl'>{parentCategory.icon}</span>
                                             </div>
-                                            <h3 className='text-xl font-semibold text-[#1d3557] dark:text-[#f1faee]'>
-                                            {category.title}
-                                        </h3>
-                                    </div>
+                                            <div>
+                                                <h3 className='text-2xl font-bold text-[#1d3557] dark:text-[#f1faee] mb-1'>
+                                                    {parentCategory.title}
+                                                </h3>
+                                                <p className='text-sm text-[#1d3557]/70 dark:text-[#f1faee]/70'>
+                                                    {parentCategory.description}
+                                                </p>
+                                            </div>
+                                        </div>
 
-                                        <div className='space-y-4'>
-                                        {category.skills.map((skill, skillIndex) => (
-                                            <div
-                                                key={skillIndex}
-                                                    className='flex items-center p-4 rounded-2xl bg-white/10 hover:bg-white/15 transition-all duration-300 transform hover:translate-y-[-2px]'
-                                                    style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
-                                            >
-                                                    <div className='mr-4 p-2 rounded-full bg-white/15'>
-                                                    {getSkillIcon(skill)}
+                                        {/* Sub Categories Grid */}
+                                        <div className='space-y-6'>
+                                            {parentCategory.subCategories.map((subCategory, subIndex) => (
+                                                <div key={subCategory.id} className='border-l-4 border-[#a8dadc]/30 pl-4'>
+                                                    <div className='flex items-center mb-3'>
+                                                        <span className='text-lg mr-2'>{subCategory.icon}</span>
+                                                        <h4 className='text-lg font-semibold text-[#1d3557] dark:text-[#f1faee]'>
+                                                            {subCategory.title}
+                                                        </h4>
+                                                    </div>
+                                                    <div className='flex flex-wrap gap-2'>
+                                                        {subCategory.skills.map((skill, skillIndex) => (
+                                                            <div
+                                                                key={skillIndex}
+                                                                className='inline-flex items-center px-3 py-1 rounded-full text-xs bg-white/10 hover:bg-white/15 text-[#1d3557] dark:text-[#f1faee] transition-all duration-300 transform hover:scale-105'
+                                                                style={{ boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                                                            >
+                                                                <span className='mr-1 p-1 rounded-full bg-white/15'>
+                                                                    {getSkillIcon(skill)}
+                                                                </span>
+                                                                {skill}
+                                                            </div>
+                                                        ))}
+                                                    </div>
                                                 </div>
-                                                    <span className='text-sm font-medium text-[#1d3557] dark:text-[#f1faee]'>
-                          {skill}
-                        </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                            ))}
+                                        </div>
+                                    </CardContent>
+                                </Card>
                             );
                         })}
                     </div>
-
-                    {/* Technology Stack - Material Design 3 Style with Grouped Categories */}
-                    <Card 
-                        className='relative z-10 border-none shadow-lg overflow-hidden mt-16'
-                        style={{
-                            borderRadius: '28px',
-                            background: 'rgba(241, 250, 238, 0.08)',
-                            backdropFilter: 'blur(20px)'
-                        }}
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#a8dadc]/20 to-[#1d3557]/20 opacity-30 z-0" />
-                        
-                        <CardContent className='p-10 relative z-10'>
-                            <h3 className='text-2xl font-semibold mb-8 text-center text-[#1d3557] dark:text-[#f1faee]'>
-                                    Technology Stack
-                                </h3>
-                            
-                            {/* Office & Productivity */}
-                            <div className="mb-10">
-                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
-                                    Office & Productivity
-                                </h4>
-                                <div className='flex flex-wrap gap-3'>
-                                    {["Microsoft Office Suite", "Google Workspace"].map((tech, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#457b9d]/30 to-[#a8dadc]/30 hover:from-[#457b9d]/40 hover:to-[#a8dadc]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-                                        >
-                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
-                                                {getSkillIcon(tech)}
-                                            </span>
-                                            {tech}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            {/* Design Tools */}
-                            <div className="mb-10">
-                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
-                                    Design Tools
-                                </h4>
-                                <div className='flex flex-wrap gap-3'>
-                                    {["Canva", "Adobe Photoshop", "Adobe Lightroom"].map((tech, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#e63946]/30 to-[#457b9d]/30 hover:from-[#e63946]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-                                        >
-                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
-                                                {getSkillIcon(tech)}
-                                            </span>
-                                            {tech}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            {/* CRM & ERP */}
-                            <div className="mb-10">
-                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
-                                    CRM & ERP
-                                </h4>
-                                <div className='flex flex-wrap gap-3'>
-                                    {[
-                                        "Salesforce", 
-                                        "Zoho CRM", 
-                                        "Property Finder", 
-                                        "Bayut Tools", 
-                                        "SAP SuccessFactors", 
-                                        "Oracle HR", 
-                                        "Microsoft Dynamics"
-                                    ].map((tech, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#1d3557]/30 to-[#457b9d]/30 hover:from-[#1d3557]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-                                        >
-                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
-                                                {getSkillIcon(tech)}
-                                            </span>
-                                            {tech}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            {/* Marketing & Communication */}
-                            <div className="mb-10">
-                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
-                                    Marketing & Communication
-                                </h4>
-                                <div className='flex flex-wrap gap-3'>
-                                    {["Meta Business Suite", "Google Ads", "Mailchimp"].map((tech, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#a8dadc]/30 to-[#457b9d]/30 hover:from-[#a8dadc]/40 hover:to-[#457b9d]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-                                        >
-                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
-                                                {getSkillIcon(tech)}
-                                            </span>
-                                            {tech}
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            
-                            {/* Data & Analytics */}
-                            <div>
-                                <h4 className="text-lg font-semibold mb-4 text-[#1d3557] dark:text-[#f1faee] border-b border-[#a8dadc]/30 pb-2">
-                                    Data & Analytics
-                                </h4>
-                                <div className='flex flex-wrap gap-3'>
-                                    {["Excel (Advanced)", "Power BI (Entry-Level)", "Google Analytics"].map((tech, index) => (
-                                        <div
-                                            key={index}
-                                            className="flex items-center px-4 py-2 bg-gradient-to-r from-[#457b9d]/30 to-[#1d3557]/30 hover:from-[#457b9d]/40 hover:to-[#1d3557]/40 border-none rounded-full text-sm text-[#1d3557] dark:text-[#f1faee] backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
-                                            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-                                        >
-                                            <span className='mr-2 p-1.5 bg-white/15 rounded-full'>
-                                                {getSkillIcon(tech)}
-                      </span>
-                                            {tech}
-                                        </div>
-                                    ))}
-                                </div>
-                                </div>
-                            </CardContent>
-                        </Card>
                 </div>
             </div>
         </section>
