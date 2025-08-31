@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Coffee, Code, Zap } from "lucide-react";
+import { Building, BookOpen, Target, Users, Briefcase, Award } from "lucide-react";
 
 interface AboutInfo {
   title?: string;
@@ -14,163 +13,84 @@ interface AboutInfo {
   }>;
 }
 
-// Fallback data in case API fails
 const fallbackData: AboutInfo = {
   title: "About Me",
-  description: "I'm a passionate developer who loves creating amazing web experiences.",
+  description: "Business Administration graduate from the University of Wollongong Dubai with expertise in marketing, administration, and HR roles. Specialized in client engagement, real estate operations, and HR processes, with a focus on efficient organizational management. Strong background in digital content creation and data organization. Beyond work, I'm an active sports enthusiast and volunteer, having played National Throwball and contributed to SOS Village initiatives.",
   highlights: [
-    { icon: "💻", text: "Full-stack development expertise", color: "text-blue-400" },
-    { icon: "⚡", text: "Performance optimization", color: "text-yellow-400" },
-    { icon: "❤️", text: "Clean code enthusiast", color: "text-red-400" },
-    { icon: "☕", text: "Coffee-powered coding", color: "text-brown-400" }
+    {
+      icon: "🎓",
+      text: "Business Administration Graduate",
+      color: "text-blue-400"
+    },
+    {
+      icon: "💼",
+      text: "3+ Years Experience",
+      color: "text-emerald-400"
+    },
+    {
+      icon: "🏢",
+      text: "Multiple Industries",
+      color: "text-purple-400"
+    },
+    {
+      icon: "🎯",
+      text: "Results Driven",
+      color: "text-amber-400"
+    }
   ]
 };
 
 export function About() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [aboutData, setAboutData] = useState<AboutInfo | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  // Fetch about data from API
-  useEffect(() => {
-    async function fetchAboutData() {
-      try {
-        setLoading(true);
-        const response = await fetch('/api/portfolio');
-        if (!response.ok) throw new Error('Failed to fetch about data');
-        const data = await response.json();
-        setAboutData(data.aboutInfo);
-        setError(null);
-      } catch (error) {
-        console.error('Error fetching about data:', error);
-        setError('Failed to load about section');
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchAboutData();
-  }, []);
-
-  // Animation observer
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Use API data if available, otherwise use fallback
-  const currentData = aboutData || fallbackData;
-  
-  // Map icon strings to actual icon components for highlights
   const getIconComponent = (iconStr: string) => {
     switch (iconStr) {
-      case "💻": return Code;
-      case "⚡": return Zap; 
-      case "❤️": return Heart;
-      case "☕": return Coffee;
-      default: return Code;
+      case "🎓": return BookOpen;
+      case "💼": return Briefcase;
+      case "🏢": return Building;
+      case "🎯": return Target;
+      case "👥": return Users;
+      case "🏆": return Award;
+      default: return Briefcase;
     }
   };
 
-  // Loading state
-  if (loading) {
-    return (
-      <section id="about" className="py-20 relative opacity-75">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="animate-pulse space-y-8">
-              <div className="h-8 bg-gray-300 rounded w-1/4 mx-auto" />
-              <div className="space-y-4">
-                <div className="h-4 bg-gray-300 rounded w-3/4" />
-                <div className="h-4 bg-gray-300 rounded w-5/6" />
-                <div className="h-4 bg-gray-300 rounded w-4/6" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="h-20 bg-gray-300 rounded" />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  // Error state
-  if (error) {
-    return (
-      <section id="about" className="py-20 relative">
-        <div className="container mx-auto px-4 text-center text-red-500">
-          <p>{error}</p>
-          <p className="mt-2 text-sm">Using fallback data...</p>
-        </div>
-      </section>
-    );
-  }
-
-  // Render actual content
   return (
-    <section id="about" ref={sectionRef} className="py-20 relative">
-      <div className="absolute inset-0 bg-white/10 backdrop-blur-sm" />
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white relative z-10">
-              {currentData.title}
-            </h2>
+    <div className="container mx-auto px-4 py-12 md:py-20">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-16 text-white text-center">
+          {fallbackData.title}
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <div className="prose prose-invert max-w-none">
+            <p className="text-sm md:text-base text-white/90 leading-relaxed backdrop-blur-none bg-transparent">
+              {fallbackData.description}
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="prose prose-invert">
-                {currentData?.description?.split('\n\n').map((paragraph, i) => (
-                  <p key={i} className="text-white/80">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <Card className="glass macos-card border-white/20">
-                <CardContent className="p-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    {currentData.highlights.map((highlight, index) => {
-                      const Icon = getIconComponent(highlight.icon);
-                      return (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-3 p-3 rounded-lg bg-white/10 hover:bg-white/20 transition-colors duration-200"
-                        >
-                          <Icon className={`h-5 w-5 ${highlight.color}`} />
-                          <span className="text-sm font-medium text-white">
-                            {highlight.text}
-                          </span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+          <div>
+            <Card className="bg-white/5 backdrop-blur-[2px] border-white/10 hover:border-white/20 transition-colors duration-300">
+              <CardContent className="p-4 md:p-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                  {fallbackData.highlights.map((highlight, index) => {
+                    const Icon = getIconComponent(highlight.icon);
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center space-x-3 p-2.5 md:p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-200"
+                      >
+                        <Icon className={`h-4 w-4 md:h-5 md:w-5 ${highlight.color}`} />
+                        <span className="text-xs md:text-sm font-medium text-white/90">
+                          {highlight.text}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -71,11 +71,11 @@ export default function MigratePortfolioPage() {
       ],
       location: "Dubai, UAE",
       socialLinks: {
-        github: "",
         linkedin: "http://linkedin.com/in/ayesha-fayaz-42717524a",
         twitter: "",
         email: "Ayeshafayaz97@gmail.com"
       },
+      avatarUrl: "/images/avatar.png",
       resumeUrl: ""
     },
 
@@ -83,17 +83,18 @@ export default function MigratePortfolioPage() {
       title: "About Me",
       description: "I'm a versatile professional with experience in marketing, administration, and HR roles across various industries. My career journey began with a foundation in business administration from the University of Wollongong Dubai.\n\nI specialize in client engagement, real estate operations, and HR processes, with strong skills in communication, data organization, and digital content creation. I'm passionate about delivering results and improving organizational efficiency.\n\nWhen I'm not working, I enjoy participating in team sports and volunteering activities. I represented Sindh in National Throwball Matches and have volunteered at SOS Village, mentoring and organizing learning activities.",
       highlights: [
-        { icon: "💼", text: "3+ Years Experience", color: "text-blue-600" },
-        { icon: "🏢", text: "Multiple Industries", color: "text-green-600" },
-        { icon: "🎓", text: "Business Administration", color: "text-red-600" },
-        { icon: "🤝", text: "Client Service Oriented", color: "text-yellow-600" }
-      ]
+        { icon: "\uD83D\uDCBC", text: "3+ Years Experience", color: "text-blue-600" },
+        { icon: "\uD83C\uDFE2", text: "Multiple Industries", color: "text-green-600" },
+        { icon: "\uD83C\uDF93", text: "Business Administration", color: "text-red-600" },
+        { icon: "\uD83E\uDD1D", text: "Client Service Oriented", color: "text-yellow-600" }
+      ],
+      imageUrl: "/images/ayesha-portfolio-image.png"
     },
 
     skillCategories: [
       {
         title: "Administrative Skills",
-        icon: "📋",
+        icon: "\uD83D\uDCCB",
         skills: [
           "Microsoft Office Suite",
           "Document Control",
@@ -105,7 +106,7 @@ export default function MigratePortfolioPage() {
       },
       {
         title: "Marketing & Content",
-        icon: "🎨",
+        icon: "\uD83C\uDFA8",
         skills: [
           "Design Tools (Canva, Adobe)",
           "Social Media Management",
@@ -116,7 +117,7 @@ export default function MigratePortfolioPage() {
       },
       {
         title: "Professional Attributes",
-        icon: "🤝",
+        icon: "\uD83E\uDD1D",
         skills: [
           "Client Service Orientation",
           "Professionalism",
@@ -127,7 +128,7 @@ export default function MigratePortfolioPage() {
       },
       {
         title: "Industry Experience",
-        icon: "🏢",
+        icon: "\uD83C\uDFE2",
         skills: [
           "Real Estate Operations",
           "Property Conveyancing",
@@ -143,7 +144,6 @@ export default function MigratePortfolioPage() {
       phone: "+971 58 590 2781",
       location: "Dubai, UAE",
       socialLinks: {
-        github: "",
         linkedin: "http://linkedin.com/in/ayesha-fayaz-42717524a",
         twitter: "",
         facebook: "",
@@ -173,7 +173,7 @@ export default function MigratePortfolioPage() {
       seo: {
         title: "Ayesha Fayyaz Portfolio",
         description: "Passionate full-stack developer creating exceptional digital experiences with clean code and innovative solutions.",
-        image: ""
+        image: "/images/ayesha-portfolio-image.png"
       },
       analytics: {
         googleAnalyticsId: ""
@@ -233,10 +233,10 @@ export default function MigratePortfolioPage() {
       updateProgress('skillCategories', 'pending');
       
       // Clear existing and recreate
-      const existing = await skillCategoriesService.getSkillCategories();
-      for (const category of existing) {
-        await skillCategoriesService.deleteSkillCategory(category.id);
-      }
+      // const existing = await skillCategoriesService.getSkillCategories();
+      // for (const category of existing) {
+      //   await skillCategoriesService.deleteSkillCategory(category.id);
+      // }
       
       // Create new categories
       for (const category of portfolioData.skillCategories) {

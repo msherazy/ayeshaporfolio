@@ -9,80 +9,54 @@ import { Project } from "@/types/project";
 
 // Static projects data
 const projectsData: Project[] = [
-	{
-		title: "Marketing Campaign Management Dashboard",
-		description:
-			"Developed an integrated dashboard for tracking multi-channel marketing campaigns, including social media performance, email metrics, and ROI analysis across different market segments.",
-		image: "/images/ayesha-portfolio-image.png",
-		technologies: [
-			"Data Visualization",
-			"Campaign Analytics",
-			"Marketing Automation",
-			"PowerBI",
-			"Excel",
-		],
-		featured: true,
-	},
-	{
-		title: "Corporate Brand Asset Portfolio",
-		description:
-			"Created and managed a comprehensive collection of marketing materials, including digital posters, brochures, and social media content, maintaining brand consistency across all channels.",
-		image: "/images/avatar.png",
-		technologies: [
-			"Adobe Creative Suite",
-			"Brand Guidelines",
-			"Digital Marketing",
-			"Content Strategy",
-		],
-		featured: true,
-	},
-	{
-		title: "Compliance Training Platform",
-		description:
-			"Designed and implemented an interactive compliance training system with progress tracking, certification management, and automated reporting features.",
-		image: "/images/ayesha-portfolio-image.png",
-		technologies: [
-			"LMS Development",
-			"Compliance Tracking",
-			"Report Automation",
-			"Training Analytics",
-		],
-		featured: false,
-	},
-	{
-		title: "Sales Performance Analytics",
-		description:
-			"Built a comprehensive sales reporting system featuring daily broker performance metrics, pipeline analysis, and automated sales agenda generation.",
-		image: "/images/avatar.png",
-		technologies: ["Sales Analytics", "Data Reporting", "Excel", "PowerBI", "Automation"],
-		featured: false,
-	},
-	{
-		title: "Client Qualification System",
-		description:
-			"Developed a streamlined client qualification process with automated scoring, risk assessment, and documentation management capabilities.",
-		image: "/images/ayesha-portfolio-image.png",
-		technologies: [
-			"Risk Assessment",
-			"Process Automation",
-			"Document Management",
-			"CRM Integration",
-		],
-		featured: false,
-	},
-	{
-		title: "Marketing Resource Hub",
-		description:
-			"Created a centralized platform for managing marketing assets, campaign materials, and collaborative tools for cross-functional team coordination.",
-		image: "/images/avatar.png",
-		technologies: [
-			"Asset Management",
-			"Team Collaboration",
-			"Campaign Planning",
-			"Resource Optimization",
-		],
-		featured: false,
-	},
+    {
+        title: "Marketing Campaign Management Dashboard",
+        description: "Developed an integrated dashboard for tracking multi-channel marketing campaigns, including social media performance, email metrics, and ROI analysis across different market segments.",
+        image: "https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["Data Visualization", "Campaign Analytics", "Marketing Automation", "PowerBI", "Excel"],
+        github: "https://github.com/msherazy/campaign-dashboard",
+        featured: true,
+    },
+    {
+        title: "Corporate Brand Asset Portfolio",
+        description: "Created and managed a comprehensive collection of marketing materials, including digital posters, brochures, and social media content, maintaining brand consistency across all channels.",
+        image: "https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["Adobe Creative Suite", "Brand Guidelines", "Digital Marketing", "Content Strategy"],
+        github: "https://github.com/msherazy/brand-portfolio",
+        featured: true,
+    },
+    {
+        title: "Compliance Training Platform",
+        description: "Designed and implemented an interactive compliance training system with progress tracking, certification management, and automated reporting features.",
+        image: "https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["LMS Development", "Compliance Tracking", "Report Automation", "Training Analytics"],
+        github: "https://github.com/msherazy/compliance-training",
+        featured: false,
+    },
+    {
+        title: "Sales Performance Analytics",
+        description: "Built a comprehensive sales reporting system featuring daily broker performance metrics, pipeline analysis, and automated sales agenda generation.",
+        image: "https://images.pexels.com/photos/7681091/pexels-photo-7681091.jpeg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["Sales Analytics", "Data Reporting", "Excel", "PowerBI", "Automation"],
+        github: "https://github.com/msherazy/sales-analytics",
+        featured: false,
+    },
+    {
+        title: "Client Qualification System",
+        description: "Developed a streamlined client qualification process with automated scoring, risk assessment, and documentation management capabilities.",
+        image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["Risk Assessment", "Process Automation", "Document Management", "CRM Integration"],
+        github: "https://github.com/msherazy/client-qualification",
+        featured: false,
+    },
+    {
+        title: "Marketing Resource Hub",
+        description: "Created a centralized platform for managing marketing assets, campaign materials, and collaborative tools for cross-functional team coordination.",
+        image: "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=600",
+        technologies: ["Asset Management", "Team Collaboration", "Campaign Planning", "Resource Optimization"],
+        github: "https://github.com/msherazy/marketing-hub",
+        featured: false,
+    }
 ];
 
 export function Projects() {

@@ -336,30 +336,6 @@ export function Contact() {
                   </div>
                 </CardContent>
               </Card>
-
-              {socialLinks.length > 0 && (
-                <Card className='glass macos-card border-white/20 relative z-10'>
-                  <CardContent className='p-8'>
-                    <h3 className='text-2xl font-semibold mb-6 text-white'>
-                      Follow Me
-                    </h3>
-                    <div className='flex space-x-4'>
-                      {socialLinks.map((social: any, index) => (
-                        <a
-                          key={index}
-                          href={social.href}
-                          target='_blank'
-                          rel='noopener noreferrer'
-                          className='p-3 bg-white/20 rounded-full hover:bg-white/30 transition-colors duration-200'
-                          aria-label={social.label}
-                        >
-                          <social.icon className='h-6 w-6 text-white' />
-                        </a>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
             </div>
           </div>
         </div>
