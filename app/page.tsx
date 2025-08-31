@@ -10,7 +10,7 @@ import { Footer } from '@/components/footer';
 export default function Home() {
   return (
     <div className="min-h-screen macos-bg relative overflow-hidden">
-      {/* Floating background orbs */}
+      {/* Global floating orbs that flow across all sections */}
       <div className="floating-orb"></div>
       <div className="floating-orb"></div>
       <div className="floating-orb"></div>

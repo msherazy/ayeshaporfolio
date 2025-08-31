@@ -2,22 +2,64 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide navigation
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navigation
+        setIsVisible(true);
+      }
+      
+      // Update scrolled state for styling
+      setIsScrolled(currentScrollY > 50);
+      
+      // Update active section based on scroll position
+      const sections = ["", "about", "skills", "projects", "experience", "contact"];
+      
+      // Special handling for top of page (Home section)
+      if (currentScrollY < 100) {
+        setActiveSection("");
+        setLastScrollY(currentScrollY);
+        return;
+      }
+      
+      // Get navigation bar height (64px mobile, 80px desktop) + extra padding
+      const navHeight = window.innerWidth >= 768 ? 100 : 84; // 80px + 20px padding for desktop, 64px + 20px for mobile
+      const scrollPosition = currentScrollY + navHeight;
+      
+      // Find the current active section
+      let activeSectionFound = "";
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i] || "hero");
+        if (section && section.offsetTop <= scrollPosition) {
+          activeSectionFound = sections[i];
+          break;
+        }
+      }
+      
+      setActiveSection(activeSectionFound);
+      
+      setLastScrollY(currentScrollY);
     };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navItems = [
+    { href: "#", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#projects", label: "Projects" },
@@ -25,78 +67,64 @@ export function Navigation() {
     { href: "#contact", label: "Contact" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    if (href === "#") {
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      // Get navigation bar height (64px mobile, 80px desktop)
+      const navHeight = window.innerWidth >= 768 ? 80 : 64;
+      const targetPosition = targetElement.offsetTop - navHeight - 20; // Extra 20px padding
+      
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-700 ease-in-out ${
         isScrolled ? "glass shadow-2xl" : "bg-transparent"
-      }`}
+      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className='container mx-auto px-4'>
-        <div className='flex items-center justify-between h-20'>
-          <a href='#' className='flex items-center space-x-2 font-bold text-xl'>
-            <span className='text-white font-semibold tracking-tight'>
-              Ayesha Fayyaz
-            </span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-8'>
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className='text-white/80 hover:text-white transition-all duration-300 font-medium px-4 py-2 rounded-full hover:bg-white/10 backdrop-blur-sm'
-              >
-                {item.label}
-              </a>
-            ))}
-            <ThemeToggle />
-            <Button
-              size='sm'
-              className='bg-white/20 hover:bg-white/30 text-white border-white/20 backdrop-blur-sm transition-all duration-300'
-            >
-              Resume
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className='md:hidden p-2 rounded-md text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300'
-          >
-            {isOpen ? <X className='h-6 w-6' /> : <Menu className='h-6 w-6' />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className='md:hidden glass border-t border-white/20'>
-            <div className='px-2 pt-2 pb-3 space-y-1'>
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className='block px-3 py-2 text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300'
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
-              <div className='flex items-center justify-between px-3 py-2'>
-                <span className='text-white/80'>Theme</span>
-                <ThemeToggle />
-              </div>
-              <div className='px-3 py-2'>
-                <Button
-                  size='sm'
-                  className='w-full bg-white/20 hover:bg-white/30 text-white border-white/20'
-                >
-                  Resume
-                </Button>
-              </div>
+        <div className='flex items-center justify-center h-16 md:h-20'>
+          {/* Navigation Pills - All Devices */}
+          <div className='flex items-center'>
+            <div className='flex items-center space-x-1 px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg'>
+              {navItems.map((item, index) => {
+                const isActive = activeSection === (item.href === "#" ? "" : item.href.substring(1));
+                return (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className={`relative px-2 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 cursor-pointer ${
+                      isActive
+                        ? 'text-[#1d3557] bg-gradient-to-r from-[#a8dadc] to-[#457b9d] shadow-md'
+                        : 'text-white/80 hover:text-white hover:bg-white/20'
+                    }`}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <div className='absolute inset-0 rounded-full bg-gradient-to-r from-[#a8dadc] to-[#457b9d] opacity-20 animate-pulse'></div>
+                    )}
+                  </a>
+                );
+              })}
             </div>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );

@@ -128,7 +128,7 @@ export function Experience() {
                       <Card 
                         className='border-none shadow-lg relative z-10 overflow-hidden'
                         style={{
-                          borderRadius: '24px',
+                          borderRadius: '28px',
                           background: 'rgba(241, 250, 238, 0.08)',
                           backdropFilter: 'blur(20px)'
                         }}

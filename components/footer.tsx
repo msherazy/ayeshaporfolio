@@ -2,10 +2,20 @@ export function Footer() {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className='py-4'>
-			<div className='container mx-auto'>
-				<div className='text-center text-white/70'>
-					<p>&copy; {currentYear} Ayesha Fayyaz. All rights reserved.</p>
+		<footer className='py-6 md:py-8 relative z-10'>
+			{/* Footer Section - Deep Blue Theme */}
+			<div className='absolute -top-20 -right-20 w-[400px] h-[400px] bg-gradient-to-br from-[#1d3557]/40 to-[#457b9d]/40 rounded-full blur-3xl opacity-50 z-0 animate-slow-spin'></div>
+			<div className='absolute -bottom-20 -left-20 w-[450px] h-[450px] bg-gradient-to-tr from-[#a8dadc]/30 to-[#1d3557]/30 rounded-full blur-3xl opacity-40 z-0 animate-slow-spin-reverse'></div>
+			
+			<div className='container mx-auto px-4 md:px-6'>
+				<div className='flex items-center justify-center'>
+					{/* Footer Pills Container - Matching Navigation Design */}
+					<div className='flex items-center px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg'>
+						{/* All Rights Reserved Pill */}
+						<div className='px-4 py-2 rounded-full text-sm font-medium text-white/80 bg-white/5 backdrop-blur-sm'>
+							All rights reserved @ Ayesha Fayyaz
+						</div>
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -215,69 +215,106 @@ export function Contact() {
           </div>
 
           <div className='grid lg:grid-cols-3 gap-8 items-stretch'>
-            {/* Contact Information Card - Now on the left for better visual hierarchy */}
+            {/* Contact Information Card - Enhanced Design */}
             <div className='lg:col-span-1'>
-              <Card className='glass macos-card border-[#a8dadc]/20 relative z-10 h-full' style={{ background: 'rgba(241, 250, 238, 0.05)' }}>
-                <CardContent className='p-8'>
-                  <h3 className='text-2xl font-semibold mb-6 text-[#1d3557] dark:text-[#f1faee]'>
-                    Contact Information
-                  </h3>
+              <Card 
+                className='relative z-10 h-full border-none shadow-lg overflow-hidden'
+                style={{
+                  borderRadius: '28px',
+                  background: 'rgba(241, 250, 238, 0.08)',
+                  backdropFilter: 'blur(20px)'
+                }}
+              >
+                {/* Card background gradient - Standardized */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
+                
+                <CardContent className='p-8 relative z-10'>
+                  {/* Header with decorative element */}
+                  <div className='mb-8'>
+                    <h3 className='text-2xl font-bold mb-3 text-[#1d3557] dark:text-[#f1faee]'>
+                      Contact Information
+                    </h3>
+                    <div className="h-1 w-16 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full"></div>
+                  </div>
+                  
                   <div className='space-y-6'>
-                    {contactInfo.map((info, index) => (
-                      <a
-                        key={index}
-                        href={info.href}
-                        target={
-                          info.href.startsWith("http") ? "_blank" : undefined
+                    {contactInfo.map((info, index) => {
+                      // Define gradient backgrounds for each contact item
+                      const getContactGradient = () => {
+                        switch(index) {
+                          case 0: return "from-[#457b9d]/20 to-[#a8dadc]/20";
+                          case 1: return "from-[#a8dadc]/20 to-[#f1faee]/20";
+                          case 2: return "from-[#e63946]/20 to-[#457b9d]/20";
+                          default: return "from-[#a8dadc]/20 to-[#457b9d]/20";
                         }
-                        rel={
-                          info.href.startsWith("http")
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
-                        className='flex items-center space-x-4 p-4 rounded-lg hover:bg-white/10 transition-all duration-300 transform hover:translate-x-1'
-                      >
-                        <div className='p-3 bg-white/20 rounded-full shadow-lg'>
-                          <info.icon className='h-6 w-6 text-white' />
-                        </div>
-                        <div>
-                          <h4 className='font-medium text-white'>
-                            {info.title}
-                          </h4>
-                          <p className='text-white/70'>{info.content}</p>
-                        </div>
-                      </a>
-                    ))}
+                      };
+                      
+                      return (
+                        <a
+                          key={index}
+                          href={info.href}
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                          className={`flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r ${getContactGradient()} backdrop-blur-sm transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg`}
+                          style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                        >
+                          <div className='p-3 bg-white/20 rounded-full shadow-lg'>
+                            <info.icon className='h-6 w-6 text-[#1d3557] dark:text-[#f1faee]' />
+                          </div>
+                          <div>
+                            <h4 className='font-semibold text-[#1d3557] dark:text-[#f1faee] text-base'>
+                              {info.title}
+                            </h4>
+                            <p className='text-[#1d3557]/70 dark:text-[#f1faee]/70 text-sm'>{info.content}</p>
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Contact Form - Now takes more space */}
+            {/* Contact Form - Enhanced Design */}
             <div className='lg:col-span-2'>
-              <Card className='glass macos-card border-[#a8dadc]/20 relative z-10' style={{ background: 'rgba(241, 250, 238, 0.05)' }}>
-                <CardContent className='p-8'>
-                  <h3 className='text-2xl font-semibold mb-6 text-[#1d3557] dark:text-[#f1faee]'>
-                    Send me a message
-                  </h3>
+              <Card 
+                className='relative z-10 border-none shadow-lg overflow-hidden'
+                style={{
+                  borderRadius: '28px',
+                  background: 'rgba(241, 250, 238, 0.08)',
+                  backdropFilter: 'blur(20px)'
+                }}
+              >
+                {/* Card background gradient - Standardized */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
+                
+                <CardContent className='p-8 relative z-10'>
+                  {/* Header with decorative element */}
+                  <div className='mb-8'>
+                    <h3 className='text-2xl font-bold mb-3 text-[#1d3557] dark:text-[#f1faee]'>
+                      Send me a message
+                    </h3>
+                    <div className="h-1 w-16 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full"></div>
+                  </div>
+                  
                   <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className='grid sm:grid-cols-2 gap-6'>
-                      <div className='relative'>
-                                              <Label htmlFor='name' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
-                        Name
-                      </Label>
-                      <Input
-                        id='name'
-                        name='name'
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder='Your name'
-                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
-                        required
-                      />
+                      <div className='relative group'>
+                        <Label htmlFor='name' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
+                          Name
+                        </Label>
+                        <Input
+                          id='name'
+                          name='name'
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder='Your name'
+                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
+                          required
+                        />
                       </div>
-                      <div className='relative'>
-                        <Label htmlFor='email' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                      <div className='relative group'>
+                        <Label htmlFor='email' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
                           Email
                         </Label>
                         <Input
@@ -287,13 +324,13 @@ export function Contact() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder='your@email.com'
-                          className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                           required
                         />
                       </div>
                     </div>
-                    <div className='relative'>
-                      <Label htmlFor='subject' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                    <div className='relative group'>
+                      <Label htmlFor='subject' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
                         Subject
                       </Label>
                       <Input
@@ -302,12 +339,12 @@ export function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="What's this about?"
-                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                         required
                       />
                     </div>
-                    <div className='relative'>
-                      <Label htmlFor='message' className='absolute -top-2 left-3 px-1 text-xs bg-[#f1faee]/10 dark:bg-[#f1faee]/10 rounded text-[#1d3557] dark:text-[#f1faee]/90 z-10 font-medium'>
+                    <div className='relative group'>
+                      <Label htmlFor='message' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
                         Message
                       </Label>
                       <Textarea
@@ -316,7 +353,7 @@ export function Contact() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder='Tell me about your project...'
-                        className='glass border-[#a8dadc]/30 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#457b9d]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:border-[#a8dadc]/50 focus:ring-1 focus:ring-[#a8dadc]/30'
+                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                         rows={5}
                         required
                       />
@@ -324,7 +361,7 @@ export function Contact() {
                     <Button
                       type='submit'
                       disabled={isSubmitting}
-                      className='w-full bg-gradient-to-r from-[#457b9d] to-[#1d3557] hover:from-[#3d6d8c] hover:to-[#152843] text-[#f1faee] py-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px]'
+                      className='w-full bg-gradient-to-r from-[#457b9d] to-[#1d3557] hover:from-[#3d6d8c] hover:to-[#152843] text-[#f1faee] py-6 rounded-full transition-all duration-300 hover:shadow-lg hover:translate-y-[-2px] text-base font-semibold'
                     >
                       {isSubmitting ? (
                         "Sending..."

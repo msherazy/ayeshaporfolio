@@ -342,7 +342,7 @@ export function Skills() {
                             return (
                                 <Card
                                     key={parentCategory.id}
-                                    className="glass border-none shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-xl h-full"
+                                    className="border-none shadow-lg overflow-hidden relative transition-all duration-300 hover:shadow-xl h-full"
                                     style={{
                                         borderRadius: '28px',
                                         background: 'rgba(241, 250, 238, 0.08)',
@@ -386,19 +386,32 @@ export function Skills() {
                                                             {subCategory.title}
                                                         </h4>
                                                     </div>
-                                                    <div className='flex flex-wrap gap-2'>
-                                                        {subCategory.skills.map((skill, skillIndex) => (
-                                                            <div
-                                                                key={skillIndex}
-                                                                className='inline-flex items-center px-3 py-1 rounded-full text-xs bg-white/10 hover:bg-white/15 text-[#1d3557] dark:text-[#f1faee] transition-all duration-300 transform hover:scale-105'
-                                                                style={{ boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
-                                                            >
-                                                                <span className='mr-1 p-1 rounded-full bg-white/15'>
-                                                                    {getSkillIcon(skill)}
-                                                                </span>
-                                                                {skill}
-                                                            </div>
-                                                        ))}
+                                                    <div className='flex flex-wrap gap-1.5 md:gap-2'>
+                                                        {subCategory.skills.map((skill, skillIndex) => {
+                                                            // Define gradient backgrounds for skill chips like contact items
+                                                            const getSkillGradient = () => {
+                                                                switch(skillIndex % 4) {
+                                                                    case 0: return "from-[#457b9d]/20 to-[#a8dadc]/20";
+                                                                    case 1: return "from-[#a8dadc]/20 to-[#f1faee]/20";
+                                                                    case 2: return "from-[#e63946]/20 to-[#457b9d]/20";
+                                                                    case 3: return "from-[#1d3557]/20 to-[#457b9d]/20";
+                                                                    default: return "from-[#a8dadc]/20 to-[#457b9d]/20";
+                                                                }
+                                                            };
+                                                            
+                                                            return (
+                                                                <div
+                                                                    key={skillIndex}
+                                                                    className={`inline-flex items-center px-2 md:px-3 py-1 rounded-full text-xs bg-gradient-to-r ${getSkillGradient()} backdrop-blur-sm text-[#1d3557] dark:text-[#f1faee] transition-all duration-300 transform hover:scale-105 hover:shadow-lg`}
+                                                                    style={{ boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+                                                                >
+                                                                    <span className='mr-1 p-1 rounded-full bg-white/15'>
+                                                                        {getSkillIcon(skill)}
+                                                                    </span>
+                                                                    {skill}
+                                                                </div>
+                                                            );
+                                                        })}
                                                     </div>
                                                 </div>
                                             ))}

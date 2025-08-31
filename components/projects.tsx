@@ -126,13 +126,13 @@ export function Projects() {
 										project.featured ? "md:col-span-2 lg:col-span-1" : ""
 									}`}
 									style={{
-										borderRadius: '24px',
+										borderRadius: '28px',
 										background: 'rgba(241, 250, 238, 0.08)',
 										backdropFilter: 'blur(20px)'
 									}}
 								>
-									{/* Card background gradient */}
-									<div className={`absolute inset-0 bg-gradient-to-br ${getCardGradient(index)} opacity-30 z-0`} />
+									{/* Card background gradient - Standardized */}
+									<div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
 									
 									{/* Image container with Material Design 3 styling - Fixed height */}
 									<div className="relative overflow-hidden flex-shrink-0">
