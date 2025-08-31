@@ -4,10 +4,10 @@
 
 ![Portfolio Preview](https://via.placeholder.com/800x400/1a1a2e/ffffff?text=Add+Your+Screenshot+Here)
 
-**A stunning, responsive portfolio website showcasing Backend Development expertise**
+**A stunning, responsive portfolio website showcasing Marketing & Admin expertise**
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://nextjs-portfolio-thinhtran42.vercel.app)
-[![GitHub Repo](https://img.shields.io/badge/📂_Source_Code-GitHub-black?style=for-the-badge)](https://github.com/Thinhtran42/nextjs-portfolio)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://ayeshafayyaz.me)
+[![GitHub Repo](https://img.shields.io/badge/📂_Source_Code-GitHub-black?style=for-the-badge)](https://github.com/msherazy/ayeshaporfolio)
 
 ![Next.js](https://img.shields.io/badge/Next.js-13.5.1-black?style=flat&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)
@@ -86,8 +86,8 @@
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/Thinhtran42/nextjs-portfolio.git
-cd nextjs-portfolio
+git clone https://github.com/msherazy/ayeshaporfolio.git
+cd ayeshaporfolio
 
 # 2. Install dependencies
 npm install
@@ -154,7 +154,7 @@ nextjs-portfolio/
 ## 🌐 **Deployment**
 
 ### **Vercel (Recommended)**
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Thinhtran42/nextjs-portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/msherazy/ayeshaporfolio)
 
 ### **Manual Deployment**
 ```bash
@@ -197,10 +197,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-*Backend Developer | Ho Chi Minh City, Vietnam*
+*Marketing & Admin Professional | Dubai, UAE*
 
-[![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github)](https://github.com/Thinhtran42)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/thinhtran42)
+[![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github)](https://github.com/msherazy)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/ayesha-fayaz-42717524a)
 [![Email](https://img.shields.io/badge/Email-red?style=for-the-badge&logo=gmail)](mailto:tranthinhh013@gmail.com)
 
 ⭐ **If you found this helpful, please give it a star!** ⭐

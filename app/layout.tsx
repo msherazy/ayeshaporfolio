@@ -6,50 +6,69 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayesha Fayyaz | Portfolio",
+  title: "Ayesha Fayaz | Marketing & Admin Professional",
   description:
-    "Experienced full-stack developer specializing in React, Node.js, and modern web technologies. View my projects and get in touch.",
+    "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Based in Dubai, UAE.",
   keywords: [
-    "developer",
-    "full stack",
-    "react",
-    "nodejs",
-    "typescript",
-    "web development",
+    "marketing",
+    "admin",
+    "HR assistant",
+    "real estate",
+    "client engagement",
+    "social media",
+    "conveyancer",
+    "Dubai",
+    "UAE",
     "portfolio",
   ],
-  authors: [{ name: "Ayesha Fayyaz" }],
-  creator: "Ayesha Fayyaz",
-  publisher: "Ayesha Fayyaz",
+  authors: [{ name: "Ayesha Fayaz" }],
+  creator: "Ayesha Fayaz",
+  publisher: "Ayesha Fayaz",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://thinhtran.dev"),
+  metadataBase: new URL("https://ayeshafayyaz.me"),
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "mask-icon", url: "/favicon/favicon.svg", color: "#3b82f6" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "http://localhost:8080",
-    title: "Ayesha Fayyaz",
+    url: "https://ayeshafayyaz.me",
+    title: "Ayesha Fayaz - Marketing & Admin Professional",
     description:
-      "Experienced full-stack developer specializing in React, Node.js, and modern web technologies.",
-    siteName: "Ayesha Fayyaz Portfolio",
+      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation.",
+    siteName: "Ayesha Fayaz Portfolio",
     images: [
       {
-        url: "/images/avatar.png",
+        url: "https://ayeshafayyaz.me/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ayesha Fayyaz",
+        alt: "Ayesha Fayaz - Marketing & Admin Professional",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayesha Fayyaz",
+    title: "Ayesha Fayaz - Marketing & Admin Professional",
     description:
-      "Experienced full-stack developer specializing in React, Node.js, and modern web technologies.",
-    images: ["/images/avatar.png"],
+      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Based in Dubai, UAE.",
+    images: ["https://ayeshafayyaz.me/og-image.png"],
+    creator: "@ayeshafayaz",
+    site: "@ayeshafayaz",
   },
   robots: {
     index: true,
@@ -62,6 +81,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://ayeshafayyaz.me",
+  },
+  other: {
+    "msapplication-TileColor": "#3b82f6",
+    "theme-color": "#3b82f6",
+  },
 };
 
 export default function RootLayout({
@@ -72,23 +98,64 @@ export default function RootLayout({
   return (
     <html lang='en' className='scroll-smooth' suppressHydrationWarning>
       <head>
-        <link rel='canonical' href='https://thinhtran.dev' />
+        <link rel='canonical' href='https://ayeshafayyaz.me' />
+        <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
+        <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
+        <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />
+        <link rel='manifest' href='/site.webmanifest' />
+        <meta name='theme-color' content='#3b82f6' />
+        <meta name='msapplication-TileColor' content='#3b82f6' />
+        <meta name='msapplication-config' content='/browserconfig.xml' />
+        
+        {/* WhatsApp and Meta specific meta tags */}
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        
+        {/* Additional social media meta tags */}
+        <meta name='twitter:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta name='twitter:site' content='@ayeshafayaz' />
+        
+        {/* WhatsApp specific */}
+        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image.png' />
+        
+        {/* LinkedIn specific */}
+        <meta property='og:image:url' content='https://ayeshafayyaz.me/og-image.png' />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Ayesha Fayyaz",
-              jobTitle: "Full Stack Developer",
+              name: "Ayesha Fayaz",
+              jobTitle: "Marketing & Admin Professional",
               description:
-                "Experienced full-stack developer specializing in React, Node.js, and modern web technologies.",
-              url: "https://thinhtran.dev",
+                "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes.",
+              url: "https://ayeshafayyaz.me",
+              email: "ayeshafayaz97@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Dubai",
+                addressCountry: "UAE"
+              },
               sameAs: [
-                "https://linkedin.com/in/thinhtran",
-                "https://github.com/thinhtran",
-                "https://twitter.com/thinhtran",
+                "https://linkedin.com/in/ayesha-fayaz-42717524a",
               ],
+              knowsAbout: [
+                "Marketing",
+                "Administration", 
+                "HR Processes",
+                "Real Estate Operations",
+                "Client Engagement",
+                "Social Media Management",
+                "Data Organization",
+                "Digital Content Creation"
+              ],
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance Professional"
+              }
             }),
           }}
         />
