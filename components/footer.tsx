@@ -15,7 +15,7 @@ export function Footer() {
 						<Copyright className='h-4 w-4' />
 						<span>{currentYear}</span>
 						<span>-</span>
-						<span>Ayesha Fayaz</span>
+						<span>Ayesha Fayyaz</span>
 					</div>
 				</div>
 			</div>

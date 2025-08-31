@@ -1,7 +1,7 @@
-import { promises as fs } from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
-import { Project } from '@/types/project';
+import {NextResponse} from 'next/server';
+import {Project} from '@/types/project';
 
 async function getProjectsData(): Promise<Project[]> {
   try {

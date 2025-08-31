@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, ArrowLeft, Mail } from 'lucide-react';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/navigation';
+import {Button} from '@/components/ui/button';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {ArrowLeft, Mail, Shield} from 'lucide-react';
 import Link from 'next/link';
-import { AuthProvider, useAuth } from '@/components/auth/AuthContext';
+import {AuthProvider, useAuth} from '@/components/auth/AuthContext';
 
 function LoginContent() {
   const [loading, setLoading] = useState(false);

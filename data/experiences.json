@@ -1,42 +1,6 @@
 [
   {
     "id": "1",
-    "title": "HR Executive",
-    "company": "Asteco Property Management",
-    "location": "Dubai, UAE",
-    "startDate": "2025-08-01",
-    "endDate": null,
-    "current": true,
-    "period": "August 2025 - Present",
-    "description": [
-      "Manage end-to-end recruitment processes including job postings, candidate screening, interviewing, and onboarding",
-      "Coordinate employee relations activities and assist in resolving workplace issues",
-      "Maintain and update HR records and databases using HRIS systems"
-    ],
-    "technologies": ["Recruitment", "Employee Relations", "HRIS", "Onboarding"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "2",
-    "title": "HR Intern",
-    "company": "Asteco Property Management",
-    "location": "Dubai, UAE",
-    "startDate": "2024-08-01",
-    "endDate": "2024-11-30",
-    "current": false,
-    "period": "August - November 2024",
-    "description": [
-      "Assisted in the recruitment process by screening resumes and scheduling interviews",
-      "Supported the HR team with employee onboarding and orientation sessions",
-      "Maintained employee records and assisted with HR administrative tasks"
-    ],
-    "technologies": ["Recruitment Support", "Onboarding Assistance", "HR Administration"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "3",
     "title": "Conveyancer (HR Department)",
     "company": "First Edition Realty",
     "location": "Dubai, UAE",
@@ -54,7 +18,7 @@
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
   {
-    "id": "4",
+    "id": "2",
     "title": "Admin Coordinator",
     "company": "House and Hedges",
     "location": "Dubai, UAE",
@@ -65,17 +29,17 @@
     "description": [
       "Helped the HR team with staff records, onboarding new employees, and general office admin tasks",
       "Managed and updated property listings, making sure all details like prices, unit sizes, and availability were correct",
-      "Provided administrative support to the sales team"
+      "Provided admin support to the sales team"
     ],
-    "technologies": ["HR Support", "Property Listings", "Admin Coordination", "Team Support"],
+    "technologies": ["HR Administration", "Property Management", "Office Administration", "Sales Support"],
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
   {
-    "id": "5",
+    "id": "3",
     "title": "Internee",
     "company": "Radfore Research (Chicago based)",
-    "location": "Remote",
+    "location": "Chicago, USA",
     "startDate": "2023-07-01",
     "endDate": "2023-09-30",
     "current": false,
@@ -85,24 +49,7 @@
       "Supported research projects by managing timelines, budgets, and resources",
       "Created social media content and LinkedIn carousels to boost engagement"
     ],
-    "technologies": ["Research", "Data Collection", "Social Media Content", "Project Support"],
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
-  },
-  {
-    "id": "6",
-    "title": "Marketing Assistant",
-    "company": "CHR. Hansen",
-    "location": "Dubai, UAE",
-    "startDate": "2023-05-01",
-    "endDate": "2023-06-30",
-    "current": false,
-    "period": "May - June 2023",
-    "description": [
-      "Created brochures and conducted market research by analyzing competitor products in stores",
-      "Collaborated on content development, increasing online engagement by 20%"
-    ],
-    "technologies": ["Marketing", "Brochure Creation", "Market Research", "Content Development"],
+    "technologies": ["Data Collection", "Research Support", "Social Media Marketing", "Project Management"],
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   }

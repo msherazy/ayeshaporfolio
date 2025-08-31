@@ -15,21 +15,21 @@ interface AboutInfo {
 
 const fallbackData: AboutInfo = {
   title: "About Me",
-  description: "Business Administration graduate with expertise in marketing, administration, and HR roles. Specialized in client engagement, real estate operations, and digital content creation.",
+  description: "Bachelor's in Business Administration graduate from University of Wollongong Dubai with expertise in marketing, administration, and HR roles. Specialized in client engagement, real estate operations, and digital content creation.",
   highlights: [
     {
       icon: "🎓",
-      text: "Business Administration Graduate",
+      text: "Bachelor's in Business Administration",
       color: "text-blue-400"
+    },
+    {
+      icon: "🏫",
+      text: "University of Wollongong Dubai",
+      color: "text-emerald-400"
     },
     {
       icon: "💼",
       text: "3+ Years Experience",
-      color: "text-emerald-400"
-    },
-    {
-      icon: "🏢",
-      text: "Multiple Industries",
       color: "text-purple-400"
     },
     {
@@ -44,6 +44,7 @@ export function About() {
   const getIconComponent = (iconStr: string) => {
     switch (iconStr) {
       case "🎓": return BookOpen;
+      case "🏫": return Building;
       case "💼": return Briefcase;
       case "🏢": return Building;
       case "🎯": return Target;

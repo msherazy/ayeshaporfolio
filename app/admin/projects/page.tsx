@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Plus, Edit, Trash2, ExternalLink, Github } from 'lucide-react';
-import { ProjectService } from '@/lib/projectService';
-import { Project } from '@/types/project';
+import {Button} from '@/components/ui/button';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Edit, ExternalLink, Github, Plus, Trash2} from 'lucide-react';
+import {ProjectService} from '@/lib/projectService';
+import {Project} from '@/types/project';
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);

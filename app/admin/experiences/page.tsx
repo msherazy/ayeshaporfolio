@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Plus, Edit, Trash2, Building, MapPin, Calendar } from 'lucide-react';
-import { ExperienceService } from '@/lib/experienceService';
-import { Experience } from '@/types/experience';
+import {Button} from '@/components/ui/button';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Building, Calendar, Edit, MapPin, Plus, Trash2} from 'lucide-react';
+import {ExperienceService} from '@/lib/experienceService';
+import {Experience} from '@/types/experience';
 
 export default function ExperiencesPage() {
   const [experiences, setExperiences] = useState<Experience[]>([]);

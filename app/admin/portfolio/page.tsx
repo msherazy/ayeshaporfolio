@@ -1,15 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { User, Info, Code, Phone, Settings } from 'lucide-react';
-import { PersonalInfoForm } from '@/components/admin/portfolio/PersonalInfoForm';
-import { AboutInfoForm } from '@/components/admin/portfolio/AboutInfoForm';
-import { SkillCategoriesManager } from '@/components/admin/portfolio/SkillCategoriesManager';
-import { ContactInfoForm } from '@/components/admin/portfolio/ContactInfoForm';
-import { SiteSettingsForm } from '@/components/admin/portfolio/SiteSettingsForm';
+import {useState} from 'react';
+import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Badge} from '@/components/ui/badge';
+import {Code, Info, Phone, Settings, User} from 'lucide-react';
+import {PersonalInfoForm} from '@/components/admin/portfolio/PersonalInfoForm';
+import {AboutInfoForm} from '@/components/admin/portfolio/AboutInfoForm';
+import {SkillCategoriesManager} from '@/components/admin/portfolio/SkillCategoriesManager';
+import {ContactInfoForm} from '@/components/admin/portfolio/ContactInfoForm';
+import {SiteSettingsForm} from '@/components/admin/portfolio/SiteSettingsForm';
 
 export default function PortfolioInfoPage() {
   const [activeTab, setActiveTab] = useState('personal');

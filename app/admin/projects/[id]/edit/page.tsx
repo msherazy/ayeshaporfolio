@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
-import { ProjectForm } from '@/components/admin/ProjectForm';
-import { ProjectService } from '@/lib/projectService';
-import { Project } from '@/types/project';
+import {useEffect, useState} from 'react';
+import {useParams} from 'next/navigation';
+import {ProjectForm} from '@/components/admin/ProjectForm';
+import {ProjectService} from '@/lib/projectService';
+import {Project} from '@/types/project';
 
 export default function EditProjectPage() {
   const params = useParams();

@@ -4,13 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Building } from "lucide-react";
-import { ExperienceService } from "@/lib/experienceService";
 import { Experience as ExperienceType } from "@/types/experience";
+import experienceData from "@/data/experiences.json";
 
 export function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [experiences, setExperiences] = useState<ExperienceType[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [experiences] = useState<ExperienceType[]>(() => {
+    // Sort experiences by startDate in descending order
+    return [...experienceData].sort((a, b) => {
+      const dateA = new Date(a.startDate).getTime();
+      const dateB = new Date(b.startDate).getTime();
+      return dateB - dateA;
+    });
+  });
+  const [loading] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,66 +36,6 @@ export function Experience() {
     }
 
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const loadExperiences = async () => {
-      try {
-        const data = await ExperienceService.getAllExperiences();
-        setExperiences(data);
-      } catch (error) {
-        console.error('Error loading experiences:', error);
-        // Fallback to default data if API fails
-        setExperiences([
-          {
-            title: "Junior Back End Golang",
-            company: "Be Earning",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "Mar 2025 - May 2025",
-            description: [
-              "Developed backend services in Golang with focus on scalability and performance",
-              "Applied clean architecture and domain-driven design in production-level code",
-              "Collaborated with cross-functional teams to deliver high-quality software solutions",
-              "Implemented efficient APIs and microservices architecture",
-            ],
-            technologies: [
-              "Golang",
-              "Microservices",
-              "Clean Architecture",
-              "Domain-Driven Design",
-              "RESTful APIs",
-              "Git",
-            ],
-            featured: false,
-          },
-          {
-            title: ".NET Intern",
-            company: "FPT Software HCM",
-            location: "Ho Chi Minh City, Vietnam",
-            period: "Sep 2023 - Jan 2024",
-            description: [
-              "Participated in both Backend and Frontend Developer Teams to implement the application",
-              "Worked with the BA Team and Test Team to finalize the Detailed Design Document",
-              "Gained hands-on experience with full-stack development using .NET technologies",
-              "Collaborated in an agile development environment with cross-functional teams",
-            ],
-            technologies: [
-              ".NET",
-              "C#",
-              "ASP.NET",
-              "SQL Server",
-              "JavaScript",
-              "HTML/CSS",
-            ],
-            featured: false,
-          },
-        ]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadExperiences();
   }, []);
 
   return (
@@ -118,7 +65,7 @@ export function Experience() {
               {/* Timeline line */}
               <div className='absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-[#a8dadc]/30'></div>
 
-              <div className='space-y-12'>
+              <div className='space-y-8 md:space-y-12'>
                 {experiences.map((exp, index) => (
                   <div key={index} className='relative flex items-start'>
                     {/* Timeline dot */}
@@ -134,26 +81,26 @@ export function Experience() {
                         }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
-                        <CardContent className='p-6 relative z-10'>
-                          <div className='flex flex-col md:flex-row md:items-center md:justify-between mb-4'>
-                            <div>
-                              <h3 className='text-xl font-semibold text-[#1d3557] dark:text-[#f1faee] mb-1'>
+                        <CardContent className='p-4 md:p-6 relative z-10'>
+                          <div className='flex flex-col md:flex-row md:items-start md:justify-between mb-4'>
+                            <div className='flex-1 min-w-0'>
+                              <h3 className='text-lg md:text-xl font-semibold text-[#1d3557] dark:text-[#f1faee] mb-2 leading-tight'>
                                 {exp.title}
                               </h3>
-                              <div className='flex items-center space-x-4 text-[#1d3557]/70 dark:text-[#f1faee]/70'>
+                              <div className='flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0 text-[#1d3557]/70 dark:text-[#f1faee]/70 text-sm'>
                                 <div className='flex items-center space-x-1'>
-                                  <Building className='h-4 w-4' />
-                                  <span>{exp.company}</span>
+                                  <Building className='h-3 w-3 md:h-4 md:w-4 flex-shrink-0' />
+                                  <span className='truncate'>{exp.company}</span>
                                 </div>
                                 <div className='flex items-center space-x-1'>
-                                  <MapPin className='h-4 w-4' />
-                                  <span>{exp.location}</span>
+                                  <MapPin className='h-3 w-3 md:h-4 md:w-4 flex-shrink-0' />
+                                  <span className='truncate'>{exp.location}</span>
                                 </div>
                               </div>
                             </div>
-                            <div className='flex items-center space-x-1 text-[#e63946] mt-2 md:mt-0'>
-                              <Calendar className='h-4 w-4' />
-                              <span className='text-sm font-medium'>
+                            <div className='flex items-center space-x-1 text-[#e63946] mt-3 md:mt-0 flex-shrink-0'>
+                              <Calendar className='h-3 w-3 md:h-4 md:w-4' />
+                              <span className='text-xs md:text-sm font-medium'>
                                 {exp.period}
                               </span>
                             </div>
@@ -166,27 +113,27 @@ export function Experience() {
                                   {exp.description.map((item, itemIndex) => (
                                     <li
                                       key={itemIndex}
-                                      className='text-[#1d3557]/80 dark:text-[#f1faee]/80 flex items-start'
+                                      className='text-[#1d3557]/80 dark:text-[#f1faee]/80 flex items-start text-sm leading-relaxed'
                                     >
-                                      <span className='text-[#e63946] mr-2 mt-1.5'>
+                                      <span className='text-[#e63946] mr-2 mt-1 flex-shrink-0'>
                                         •
                                       </span>
-                                      {item}
+                                      <span className='flex-1'>{item}</span>
                                     </li>
                                   ))}
                                 </ul>
                               ) : (
-                                <p className='text-[#1d3557]/80 dark:text-[#f1faee]/80'>{exp.description}</p>
+                                <p className='text-[#1d3557]/80 dark:text-[#f1faee]/80 text-sm leading-relaxed'>{exp.description}</p>
                               )}
                             </div>
                           )}
 
-                          <div className='flex flex-wrap gap-2'>
+                          <div className='flex flex-wrap gap-1.5 md:gap-2'>
                             {exp.technologies.map((tech) => (
                               <Badge
                                 key={tech}
                                 variant='secondary'
-                                className='text-xs bg-[#a8dadc]/15 text-[#1d3557] dark:text-[#f1faee] border-[#a8dadc]/30 rounded-full px-3 py-1'
+                                className='text-xs bg-[#a8dadc]/15 text-[#1d3557] dark:text-[#f1faee] border-[#a8dadc]/30 rounded-full px-2 md:px-3 py-0.5 md:py-1'
                               >
                                 {tech}
                               </Badge>

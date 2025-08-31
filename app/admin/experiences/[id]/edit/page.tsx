@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
-import { ExperienceForm } from '@/components/admin/ExperienceForm';
-import { ExperienceService } from '@/lib/experienceService';
-import { Experience } from '@/types/experience';
+import {useEffect, useState} from 'react';
+import {useParams} from 'next/navigation';
+import {ExperienceForm} from '@/components/admin/ExperienceForm';
+import {ExperienceService} from '@/lib/experienceService';
+import {Experience} from '@/types/experience';
 
 export default function EditExperiencePage() {
   const params = useParams();

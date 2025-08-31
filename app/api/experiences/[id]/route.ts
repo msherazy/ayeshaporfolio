@@ -1,7 +1,7 @@
-import { promises as fs } from 'fs';
+import {promises as fs} from 'fs';
 import path from 'path';
-import { NextResponse } from 'next/server';
-import { Experience } from '@/types/experience';
+import {NextResponse} from 'next/server';
+import {Experience} from '@/types/experience';
 
 async function getExperiencesData(): Promise<Experience[]> {
   try {

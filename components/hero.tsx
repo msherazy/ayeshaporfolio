@@ -16,7 +16,7 @@ export function Hero() {
 
   // Fallback data if API data is not available
   const fallbackData = {
-    name: "Ayesha Fayaz",
+    name: "Ayesha Fayyaz",
     title: "Marketing & Admin Professional",
     description: "Results-driven marketing and admin professional with a passion for client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation.",
     typingTexts: [

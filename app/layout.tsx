@@ -1,16 +1,16 @@
 import "./globals.css";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import type {Metadata} from "next";
+import {Inter} from "next/font/google";
+import {ThemeProvider} from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayesha Fayaz - Marketing & Admin Professional",
+  title: "Ayesha Fayyaz - Marketing & Admin Professional",
   description:
     "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
   keywords: [
-    "Ayesha Fayaz",
+    "Ayesha Fayyaz",
     "Marketing Professional",
     "Admin Professional",
     "Client Engagement",
@@ -20,34 +20,34 @@ export const metadata: Metadata = {
     "UAE",
     "Portfolio",
   ],
-  authors: [{ name: "Ayesha Fayaz" }],
-  creator: "Ayesha Fayaz",
-  publisher: "Ayesha Fayaz",
+  authors: [{ name: "Ayesha Fayyaz" }],
+  creator: "Ayesha Fayyaz",
+  publisher: "Ayesha Fayyaz",
   metadataBase: new URL("https://ayeshafayyaz.me"),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ayeshafayyaz.me",
-    title: "Ayesha Fayaz - Marketing & Admin Professional",
+    title: "Ayesha Fayyaz - Marketing & Admin Professional",
     description:
       "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
-    siteName: "Ayesha Fayaz Portfolio",
+    siteName: "Ayesha Fayyaz Portfolio",
     images: [
       {
-        url: "https://ayeshafayyaz.me/og-image-whatsapp.jpg",
+        url: "https://ayeshafayyaz.me/og-image-square.png",
         width: 1200,
-        height: 630,
-        alt: "Ayesha Fayaz - Marketing & Admin Professional Portfolio",
-        type: "image/jpeg",
+        height: 1200,
+        alt: "Ayesha Fayyaz - Marketing & Admin Professional Portfolio",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayesha Fayaz - Marketing & Admin Professional",
+    title: "Ayesha Fayyaz - Marketing & Admin Professional",
     description:
       "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
-    images: ["https://ayeshafayyaz.me/og-image-whatsapp.jpg"],
+    images: ["https://ayeshafayyaz.me/og-image-square.png"],
     creator: "@ayeshafayaz",
     site: "@ayeshafayaz",
   },
@@ -102,36 +102,36 @@ export default function RootLayout({
         <meta name='msapplication-config' content='/browserconfig.xml' />
         
         {/* WhatsApp and Meta specific meta tags */}
-        <meta property='og:image' content='https://ayeshafayyaz.me/og-image-whatsapp.jpg' />
+        <meta property='og:image' content='https://ayeshafayyaz.me/og-image-square.png' />
         <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
-        <meta property='og:image:type' content='image/jpeg' />
-        <meta property='og:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
+        <meta property='og:image:height' content='1200' />
+        <meta property='og:image:type' content='image/png' />
+        <meta property='og:image:alt' content='Ayesha Fayyaz - Marketing & Admin Professional Portfolio' />
         
         {/* Additional social media meta tags */}
-        <meta name='twitter:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
+        <meta name='twitter:image:alt' content='Ayesha Fayyaz - Marketing & Admin Professional Portfolio' />
         <meta name='twitter:site' content='@ayeshafayaz' />
         
         {/* WhatsApp specific - ensure proper image display */}
-        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image-whatsapp.jpg' />
+        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image-square.png' />
         
         {/* Additional OG tags for better sharing */}
         <meta property='og:description' content='Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.' />
-        <meta property='og:title' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta property='og:title' content='Ayesha Fayyaz - Marketing & Admin Professional' />
         <meta property='og:type' content='website' />
         <meta property='og:url' content='https://ayeshafayyaz.me' />
-        <meta property='og:site_name' content='Ayesha Fayaz Portfolio' />
+        <meta property='og:site_name' content='Ayesha Fayyaz Portfolio' />
         
         {/* Twitter specific additional tags */}
         <meta name='twitter:description' content='Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.' />
-        <meta name='twitter:title' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta name='twitter:title' content='Ayesha Fayyaz - Marketing & Admin Professional' />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
-              name: "Ayesha Fayaz",
+              name: "Ayesha Fayyaz",
               jobTitle: "Marketing & Admin Professional",
               description:
                 "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes.",

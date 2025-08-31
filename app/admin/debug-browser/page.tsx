@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { CheckCircle, AlertCircle, Wifi, Settings, RefreshCw } from 'lucide-react';
+import {useEffect, useState} from 'react';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Badge} from '@/components/ui/badge';
+import {AlertCircle, CheckCircle, RefreshCw, Settings, Wifi} from 'lucide-react';
 
 export default function DebugBrowserPage() {
   const [browserInfo, setBrowserInfo] = useState<any>({});

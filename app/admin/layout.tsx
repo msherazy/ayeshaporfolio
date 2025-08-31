@@ -1,13 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import {useState} from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Home, Plus, LogOut, User, Menu, X, Folder, Briefcase, Settings } from 'lucide-react';
-import { AuthProvider } from '@/components/auth/AuthContext';
-import { AuthGuard } from '@/components/auth/AuthGuard';
-import { useAuth } from '@/components/auth/AuthContext';
+import {usePathname} from 'next/navigation';
+import {Button} from '@/components/ui/button';
+import {Briefcase, Folder, Home, LogOut, Menu, Plus, Settings, User, X} from 'lucide-react';
+import {AuthProvider, useAuth} from '@/components/auth/AuthContext';
+import {AuthGuard} from '@/components/auth/AuthGuard';
 
 function AdminLayoutContent({
   children,

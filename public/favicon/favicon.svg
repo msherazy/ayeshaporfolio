@@ -9,6 +9,6 @@
   <!-- Background circle -->
   <circle cx="50" cy="50" r="45" fill="url(#grad)" stroke="#1e293b" stroke-width="2"/>
   
-  <!-- Ayesha Fayaz initials -->
+  <!-- Ayesha Fayyaz initials -->
   <text x="50" y="65" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="white">AF</text>
 </svg>

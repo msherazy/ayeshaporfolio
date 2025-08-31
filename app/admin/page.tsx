@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Plus, Edit, Trash2, Settings } from 'lucide-react';
-import { ProjectService } from '@/lib/projectService';
-import { Project } from '@/types/project';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Button} from '@/components/ui/button';
+import {Edit, Plus, Settings, Trash2} from 'lucide-react';
+import {ProjectService} from '@/lib/projectService';
+import {Project} from '@/types/project';
 
 export default function AdminDashboard() {
   const [projects, setProjects] = useState<Project[]>([]);
