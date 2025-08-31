@@ -7,15 +7,27 @@ import { Calendar, MapPin, Building } from "lucide-react";
 import { Experience as ExperienceType } from "@/types/experience";
 import experienceData from "@/data/experiences.json";
 
+// Helper function to safely convert timestamps
+const convertTimestamp = (timestamp: any) => {
+  if (!timestamp) return undefined;
+  if (typeof timestamp === 'string') return new Date(timestamp);
+  if (timestamp instanceof Date) return timestamp;
+  return undefined;
+};
+
 export function Experience() {
   const sectionRef = useRef<HTMLElement>(null);
   const [experiences] = useState<ExperienceType[]>(() => {
-    // Sort experiences by startDate in descending order
+    // Sort experiences by startDate in descending order and convert timestamps
     return [...experienceData].sort((a, b) => {
       const dateA = new Date(a.startDate).getTime();
       const dateB = new Date(b.startDate).getTime();
       return dateB - dateA;
-    });
+    }).map((exp: any) => ({
+      ...exp,
+      createdAt: convertTimestamp(exp.createdAt),
+      updatedAt: convertTimestamp(exp.updatedAt),
+    }));
   });
   const [loading] = useState(false);
 
@@ -106,38 +118,29 @@ export function Experience() {
                             </div>
                           </div>
 
-                          {exp.description && (
-                            <div className='mb-4'>
-                              {Array.isArray(exp.description) ? (
-                                <ul className='space-y-2'>
-                                  {exp.description.map((item, itemIndex) => (
-                                    <li
-                                      key={itemIndex}
-                                      className='text-[#1d3557]/80 dark:text-[#f1faee]/80 flex items-start text-sm leading-relaxed'
-                                    >
-                                      <span className='text-[#e63946] mr-2 mt-1 flex-shrink-0'>
-                                        •
-                                      </span>
-                                      <span className='flex-1'>{item}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              ) : (
-                                <p className='text-[#1d3557]/80 dark:text-[#f1faee]/80 text-sm leading-relaxed'>{exp.description}</p>
-                              )}
+                          <div className='space-y-3'>
+                            <div className='text-sm leading-relaxed text-[#1d3557]/80 dark:text-[#f1faee]/80'>
+                              <ul className='space-y-2'>
+                                {exp.description.map((item, idx) => (
+                                  <li key={idx} className='flex items-start'>
+                                    <span className='mr-2 mt-1 flex-shrink-0 w-1.5 h-1.5 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full'></span>
+                                    <span className='flex-1'>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
-                          )}
 
-                          <div className='flex flex-wrap gap-1.5 md:gap-2'>
-                            {exp.technologies.map((tech) => (
-                              <Badge
-                                key={tech}
-                                variant='secondary'
-                                className='text-xs bg-[#a8dadc]/15 text-[#1d3557] dark:text-[#f1faee] border-[#a8dadc]/30 rounded-full px-2 md:px-3 py-0.5 md:py-1'
-                              >
-                                {tech}
-                              </Badge>
-                            ))}
+                            <div className='flex flex-wrap gap-1.5 md:gap-2'>
+                              {exp.technologies.map((tech, idx) => (
+                                <Badge 
+                                  key={idx} 
+                                  variant="secondary" 
+                                  className='px-2 md:px-3 py-0.5 md:py-1 text-xs bg-[#a8dadc]/20 text-[#1d3557] dark:text-[#f1faee] border-[#457b9d]/30'
+                                >
+                                  {tech}
+                                </Badge>
+                              ))}
+                            </div>
                           </div>
                         </CardContent>
                       </Card>
