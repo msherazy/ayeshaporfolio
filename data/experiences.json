@@ -14,6 +14,7 @@
       "Maintained and updated daily, weekly, and monthly reports including sales performance, transaction logs, and compliance records"
     ],
     "technologies": ["Property Conveyancing", "Legal Documentation", "Compliance", "Reporting"],
+    "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
@@ -32,6 +33,7 @@
       "Provided admin support to the sales team"
     ],
     "technologies": ["HR Administration", "Property Management", "Office Administration", "Sales Support"],
+    "featured": true,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   },
@@ -50,6 +52,7 @@
       "Created social media content and LinkedIn carousels to boost engagement"
     ],
     "technologies": ["Data Collection", "Research Support", "Social Media Marketing", "Project Management"],
+    "featured": false,
     "createdAt": "2024-01-01T00:00:00.000Z",
     "updatedAt": "2024-01-01T00:00:00.000Z"
   }
