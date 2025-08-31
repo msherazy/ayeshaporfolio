@@ -29,7 +29,7 @@ export function SkillCategoriesManager() {
 
   const loadSkillCategories = async () => {
     try {
-      const data = await skillCategoriesService.getSkillCategories();
+      const data = await skillCategoriesService.getAllSkillCategories();
       setSkillCategories(data);
     } catch (error) {
       console.error('Error loading skill categories:', error);

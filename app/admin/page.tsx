@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Plus, Eye, Edit, Trash2, Database, Settings } from 'lucide-react';
+import { Plus, Edit, Trash2, Settings } from 'lucide-react';
 import { ProjectService } from '@/lib/projectService';
 import { Project } from '@/types/project';
 
@@ -99,14 +99,8 @@ export default function AdminDashboard() {
           <CardTitle>Quick Actions</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-auto p-6 flex flex-col gap-2">
-              <Link href="/admin/migrate-portfolio">
-                <Database className="h-8 w-8" />
-                <span className="font-semibold">Import Portfolio Data</span>
-                <span className="text-sm opacity-80">Chuyển dữ liệu hiện có vào database</span>
-              </Link>
-            </Button>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
             <Button asChild variant="outline" className="h-auto p-6 flex flex-col gap-2">
               <Link href="/admin/portfolio">
                 <Settings className="h-8 w-8" />

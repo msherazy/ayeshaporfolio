@@ -1,8 +1,9 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import { Project } from '@/types/project';
 
-async function getProjectsData() {
+async function getProjectsData(): Promise<Project[]> {
   try {
     const filePath = path.join(process.cwd(), 'data', 'projects.json');
     const fileContent = await fs.readFile(filePath, 'utf-8');
@@ -19,7 +20,7 @@ export async function GET(
 ) {
   try {
     const projects = await getProjectsData();
-    const project = projects.find(proj => proj.id === params.id);
+    const project = projects.find((proj: Project) => proj.id === params.id);
 
     if (!project) {
       return new NextResponse('Project not found', { status: 404 });
@@ -40,7 +41,7 @@ export async function PUT(
     const projects = await getProjectsData();
     const updatedData = await request.json();
 
-    const index = projects.findIndex(proj => proj.id === params.id);
+    const index = projects.findIndex((proj: Project) => proj.id === params.id);
     if (index === -1) {
       return new NextResponse('Project not found', { status: 404 });
     }
@@ -66,7 +67,7 @@ export async function DELETE(
     const filePath = path.join(process.cwd(), 'data', 'projects.json');
     const projects = await getProjectsData();
 
-    const filteredProjects = projects.filter(proj => proj.id !== params.id);
+    const filteredProjects = projects.filter((proj: Project) => proj.id !== params.id);
     if (filteredProjects.length === projects.length) {
       return new NextResponse('Project not found', { status: 404 });
     }

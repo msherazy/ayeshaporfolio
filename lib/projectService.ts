@@ -84,6 +84,23 @@ export class ProjectService {
     }
   }
 
+  // Get all projects
+  static async getAllProjects(): Promise<Project[]> {
+    try {
+      const response = await fetch('/api/projects');
+      if (!response.ok) throw new Error('Failed to fetch projects');
+      const projects = await response.json();
+      return projects.map((project: any) => ({
+        ...project,
+        createdAt: convertTimestamp(project.createdAt),
+        updatedAt: convertTimestamp(project.updatedAt),
+      }));
+    } catch (error) {
+      console.error('Error getting all projects:', error);
+      return [];
+    }
+  }
+
   // Get featured projects
   static async getFeaturedProjects(): Promise<Project[]> {
     try {

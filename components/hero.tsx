@@ -14,7 +14,7 @@ export function Hero() {
   const [personalData, setPersonalData] = useState<PersonalInfo | null>(null);
   const [loading, setLoading] = useState(true);
 
-  // Fallback data if Firebase data is not available
+  // Fallback data if API data is not available
   const fallbackData = {
     name: "Ayesha Fayaz",
     title: "Marketing & Admin Professional",
@@ -54,7 +54,7 @@ export function Hero() {
     fetchPersonalData();
   }, []);
 
-  // Use Firebase data if available, otherwise use fallback
+  // Use API data if available, otherwise use fallback
   const currentData =  fallbackData;
   const words = currentData.typingTexts;
 

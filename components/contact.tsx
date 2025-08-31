@@ -88,7 +88,7 @@ export function Contact() {
     });
   };
 
-  // Use Firebase data if available, otherwise use fallback
+  // Use API data if available, otherwise use fallback
   const currentData = {
       email: "ayeshafayaz97@gmail.com",
       phone: "+971 58 590 2781",

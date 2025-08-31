@@ -41,8 +41,7 @@ export function ExperienceForm({ experience, mode }: ExperienceFormProps) {
       if (mode === 'create') {
         await ExperienceService.createExperience(formData as CreateExperienceData);
       } else if (mode === 'edit' && experience?.id) {
-        await ExperienceService.updateExperience({
-          id: experience.id,
+        await ExperienceService.updateExperience(experience.id, {
           ...formData,
         } as UpdateExperienceData);
       }

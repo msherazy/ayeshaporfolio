@@ -40,8 +40,7 @@ export function ProjectForm({ project, mode }: ProjectFormProps) {
       if (mode === 'create') {
         await ProjectService.createProject(formData as CreateProjectData);
       } else if (mode === 'edit' && project?.id) {
-        await ProjectService.updateProject({
-          id: project.id,
+        await ProjectService.updateProject(project.id, {
           ...formData,
         } as UpdateProjectData);
       }

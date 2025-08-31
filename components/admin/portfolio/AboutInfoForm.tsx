@@ -103,7 +103,7 @@ export function AboutInfoForm() {
       
       // More specific error handling
       if (errorMessage.includes('permission')) {
-        toast.error('Lỗi quyền truy cập - Kiểm tra Firebase Rules');
+        toast.error('Lỗi quyền truy cập - Kiểm tra API permissions');
       } else if (errorMessage.includes('network')) {
         toast.error('Lỗi kết nối mạng - Kiểm tra internet');
       } else if (errorMessage.includes('auth')) {

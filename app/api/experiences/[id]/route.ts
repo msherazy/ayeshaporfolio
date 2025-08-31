@@ -1,8 +1,9 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 import { NextResponse } from 'next/server';
+import { Experience } from '@/types/experience';
 
-async function getExperiencesData() {
+async function getExperiencesData(): Promise<Experience[]> {
   try {
     const filePath = path.join(process.cwd(), 'data', 'experiences.json');
     const fileContent = await fs.readFile(filePath, 'utf-8');
@@ -19,7 +20,7 @@ export async function GET(
 ) {
   try {
     const experiences = await getExperiencesData();
-    const experience = experiences.find(exp => exp.id === params.id);
+    const experience = experiences.find((exp: Experience) => exp.id === params.id);
 
     if (!experience) {
       return new NextResponse('Experience not found', { status: 404 });
@@ -40,7 +41,7 @@ export async function PUT(
     const experiences = await getExperiencesData();
     const updatedData = await request.json();
 
-    const index = experiences.findIndex(exp => exp.id === params.id);
+    const index = experiences.findIndex((exp: Experience) => exp.id === params.id);
     if (index === -1) {
       return new NextResponse('Experience not found', { status: 404 });
     }
@@ -66,7 +67,7 @@ export async function DELETE(
     const filePath = path.join(process.cwd(), 'data', 'experiences.json');
     const experiences = await getExperiencesData();
 
-    const filteredExperiences = experiences.filter(exp => exp.id !== params.id);
+    const filteredExperiences = experiences.filter((exp: Experience) => exp.id !== params.id);
     if (filteredExperiences.length === experiences.length) {
       return new NextResponse('Experience not found', { status: 404 });
     }

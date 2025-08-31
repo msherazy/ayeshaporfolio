@@ -38,7 +38,7 @@ export function Experience() {
         setExperiences(data);
       } catch (error) {
         console.error('Error loading experiences:', error);
-        // Fallback to default data if Firebase fails
+        // Fallback to default data if API fails
         setExperiences([
           {
             title: "Junior Back End Golang",

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Home, Plus, List, LogOut, User, Menu, X, Folder, Briefcase, Settings, Database } from 'lucide-react';
+import { Home, Plus, LogOut, User, Menu, X, Folder, Briefcase, Settings } from 'lucide-react';
 import { AuthProvider } from '@/components/auth/AuthContext';
 import { AuthGuard } from '@/components/auth/AuthGuard';
 import { useAuth } from '@/components/auth/AuthContext';
@@ -38,8 +38,6 @@ function AdminLayoutContent({
       title: 'Settings',
       items: [
         { href: '/admin/portfolio', label: 'Portfolio Info', icon: Settings },
-        { href: '/admin/migrate-portfolio', label: 'Import Data', icon: Database },
-        { href: '/admin/debug-permissions', label: 'Debug Permissions', icon: User },
         { href: '/admin/debug-browser', label: 'Browser Debug', icon: Settings },
       ]
     }

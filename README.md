@@ -12,7 +12,7 @@
 ![Next.js](https://img.shields.io/badge/Next.js-13.5.1-black?style=flat&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat&logo=typescript)
 ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38bdf8?style=flat&logo=tailwindcss)
-![Firebase](https://img.shields.io/badge/Firebase-CMS-orange?style=flat&logo=firebase)
+![Local Storage](https://img.shields.io/badge/Local_Storage-Data_Management-blue?style=flat&logo=database)
 
 </div>
 
@@ -46,7 +46,7 @@
 - Responsive across all devices
 
 🔥 **Dynamic Content**
-- Firebase-powered CMS
+- Local data management
 - Real-time content updates
 - Admin dashboard for easy management
 
@@ -68,7 +68,7 @@
 
 | Frontend | Backend | Database | Tools |
 |----------|---------|----------|-------|
-| ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js) | ![Firebase](https://img.shields.io/badge/Firebase-orange?style=for-the-badge&logo=firebase) | ![Firestore](https://img.shields.io/badge/Firestore-orange?style=for-the-badge&logo=firebase) | ![Vercel](https://img.shields.io/badge/Vercel-black?style=for-the-badge&logo=vercel) |
+| ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js) | ![Local API](https://img.shields.io/badge/Local_API-blue?style=for-the-badge&logo=api) | ![JSON Storage](https://img.shields.io/badge/JSON_Storage-green?style=for-the-badge&logo=json) | ![Vercel](https://img.shields.io/badge/Vercel-black?style=for-the-badge&logo=vercel) |
 | ![TypeScript](https://img.shields.io/badge/TypeScript-blue?style=for-the-badge&logo=typescript) | ![Node.js](https://img.shields.io/badge/Node.js-green?style=for-the-badge&logo=node.js) | ![Authentication](https://img.shields.io/badge/Auth-Security-red?style=for-the-badge&logo=auth0) | ![GitHub](https://img.shields.io/badge/GitHub-black?style=for-the-badge&logo=github) |
 | ![Tailwind](https://img.shields.io/badge/Tailwind-38bdf8?style=for-the-badge&logo=tailwindcss) | ![API](https://img.shields.io/badge/REST_API-purple?style=for-the-badge&logo=api) |  | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint) |
 
@@ -81,7 +81,6 @@
 ### **Prerequisites**
 - Node.js 18+ 
 - npm/yarn
-- Firebase account
 
 ### **Installation**
 
@@ -93,9 +92,8 @@ cd nextjs-portfolio
 # 2. Install dependencies
 npm install
 
-# 3. Set up environment variables
+# 3. Set up environment variables (optional)
 cp .env.example .env.local
-# Edit .env.local with your Firebase config
 
 # 4. Run development server
 npm run dev
