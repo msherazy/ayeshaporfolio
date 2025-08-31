@@ -49,24 +49,24 @@ export const metadata: Metadata = {
     url: "https://ayeshafayyaz.me",
     title: "Ayesha Fayaz - Marketing & Admin Professional",
     description:
-      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation.",
+      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
     siteName: "Ayesha Fayaz Portfolio",
     images: [
       {
-        url: "https://ayeshafayyaz.me/og-image.png",
+        url: "https://ayeshafayyaz.me/og-image-square.png",
         width: 1200,
-        height: 630,
-        alt: "Ayesha Fayaz - Marketing & Admin Professional",
+        height: 1200,
+        alt: "Ayesha Fayaz - Marketing & Admin Professional Portfolio",
         type: "image/png",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Ayesha Fayaz - Marketing & Admin Professional",
     description:
-      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Based in Dubai, UAE.",
-    images: ["https://ayeshafayyaz.me/og-image.png"],
+      "Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.",
+    images: ["https://ayeshafayyaz.me/og-image-square.png"],
     creator: "@ayeshafayaz",
     site: "@ayeshafayaz",
   },
@@ -109,19 +109,30 @@ export default function RootLayout({
         
         {/* WhatsApp and Meta specific meta tags */}
         <meta property='og:image:width' content='1200' />
-        <meta property='og:image:height' content='630' />
+        <meta property='og:image:height' content='1200' />
         <meta property='og:image:type' content='image/png' />
-        <meta property='og:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta property='og:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
         
         {/* Additional social media meta tags */}
-        <meta name='twitter:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta name='twitter:image:alt' content='Ayesha Fayaz - Marketing & Admin Professional Portfolio' />
         <meta name='twitter:site' content='@ayeshafayaz' />
         
         {/* WhatsApp specific */}
-        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image.png' />
+        <meta property='og:image:secure_url' content='https://ayeshafayyaz.me/og-image-square.png' />
         
         {/* LinkedIn specific */}
-        <meta property='og:image:url' content='https://ayeshafayyaz.me/og-image.png' />
+        <meta property='og:image:url' content='https://ayeshafayyaz.me/og-image-square.png' />
+        
+        {/* Additional OG tags for better sharing */}
+        <meta property='og:description' content='Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.' />
+        <meta property='og:title' content='Ayesha Fayaz - Marketing & Admin Professional' />
+        <meta property='og:type' content='website' />
+        <meta property='og:url' content='https://ayeshafayyaz.me' />
+        <meta property='og:site_name' content='Ayesha Fayaz Portfolio' />
+        
+        {/* Twitter specific additional tags */}
+        <meta name='twitter:description' content='Results-driven marketing and admin professional with expertise in client engagement, real estate operations, and HR processes. Skilled in communication, data organization, and digital content creation. Based in Dubai, UAE.' />
+        <meta name='twitter:title' content='Ayesha Fayaz - Marketing & Admin Professional' />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{
