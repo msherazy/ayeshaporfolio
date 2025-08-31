@@ -83,7 +83,7 @@ export function Projects() {
 	}, []);
 
 	return (
-		<section id="projects" ref={sectionRef} className="py-20 relative">
+		    <section id="projects" ref={sectionRef} className="py-8 md:py-16 relative">
 			{/* Material Design 3 Background Elements */}
 			<div className="absolute inset-0 bg-white/5 backdrop-blur-sm"></div>
 			<div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-[#a8dadc]/10 to-[#457b9d]/10 rounded-full blur-3xl opacity-30 z-0"></div>

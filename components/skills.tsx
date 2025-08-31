@@ -270,7 +270,7 @@ export function Skills() {
 
     if (loading) {
         return (
-            <section id='skills' className='py-20 relative'>
+            <section id='skills' className='py-8 md:py-16 relative'>
                 <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
                 <div className='container mx-auto px-4'>
                     <div className='max-w-6xl mx-auto'>
@@ -315,7 +315,7 @@ export function Skills() {
     }
 
         return (
-        <section id='skills' ref={sectionRef} className='py-20 relative'>
+        <section id='skills' ref={sectionRef} className='py-8 md:py-16 relative'>
             {/* Section background with subtle overlay */}
             <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
 

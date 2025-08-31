@@ -90,7 +90,7 @@ export function Contact() {
 
   // Use API data if available, otherwise use fallback
   const currentData = {
-      email: "ayeshafayaz97@gmail.com",
+      email: "contact@ayeshafayyaz.me",
       phone: "+971 58 590 2781",
       location: "Dubai, UAE",
       socialLinks: {
@@ -100,7 +100,7 @@ export function Contact() {
           facebook: "",
           instagram: ""
       },
-      contactFormEmail: "Ayeshafayaz97@gmail.com"
+      contactFormEmail: "contact@ayeshafayyaz.me"
   };
 
   const contactInfo = [
@@ -144,7 +144,7 @@ export function Contact() {
 
   if (loading) {
     return (
-      <section id='contact' className='py-20 relative'>
+      <section id='contact' className='py-8 md:py-16 relative'>
         <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
         <div className='container mx-auto px-4'>
           <div className='max-w-6xl mx-auto'>
@@ -199,7 +199,7 @@ export function Contact() {
   }
 
   return (
-    <section id='contact' ref={sectionRef} className='py-20 relative'>
+    <section id='contact' ref={sectionRef} className='py-8 md:py-16 relative'>
       {/* Section background with subtle overlay */}
       <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
 
@@ -229,12 +229,11 @@ export function Contact() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
                 
                 <CardContent className='p-8 relative z-10'>
-                  {/* Header with decorative element */}
+                  {/* Header */}
                   <div className='mb-8'>
-                    <h3 className='text-2xl font-bold mb-3 text-[#1d3557] dark:text-[#f1faee]'>
+                    <h3 className='text-2xl font-bold text-[#1d3557] dark:text-[#f1faee]'>
                       Contact Information
                     </h3>
-                    <div className="h-1 w-16 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full"></div>
                   </div>
                   
                   <div className='space-y-6'>
@@ -289,34 +288,27 @@ export function Contact() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#457b9d]/10 to-[#1d3557]/10 opacity-30 z-0" />
                 
                 <CardContent className='p-8 relative z-10'>
-                  {/* Header with decorative element */}
+                  {/* Header */}
                   <div className='mb-8'>
-                    <h3 className='text-2xl font-bold mb-3 text-[#1d3557] dark:text-[#f1faee]'>
+                    <h3 className='text-2xl font-bold text-[#1d3557] dark:text-[#f1faee]'>
                       Send me a message
                     </h3>
-                    <div className="h-1 w-16 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full"></div>
                   </div>
                   
                   <form onSubmit={handleSubmit} className='space-y-6'>
                     <div className='grid sm:grid-cols-2 gap-6'>
-                      <div className='relative group'>
-                        <Label htmlFor='name' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
-                          Name
-                        </Label>
+                      <div>
                         <Input
                           id='name'
                           name='name'
                           value={formData.name}
                           onChange={handleChange}
                           placeholder='Your name'
-                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
+                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                           required
                         />
                       </div>
-                      <div className='relative group'>
-                        <Label htmlFor='email' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
-                          Email
-                        </Label>
+                      <div>
                         <Input
                           id='email'
                           name='email'
@@ -324,36 +316,30 @@ export function Contact() {
                           value={formData.email}
                           onChange={handleChange}
                           placeholder='your@email.com'
-                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
+                          className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                           required
                         />
                       </div>
                     </div>
-                    <div className='relative group'>
-                      <Label htmlFor='subject' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
-                        Subject
-                      </Label>
+                    <div>
                       <Input
                         id='subject'
                         name='subject'
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="What's this about?"
-                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
+                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                         required
                       />
                     </div>
-                    <div className='relative group'>
-                      <Label htmlFor='message' className='absolute -top-2 left-3 px-2 text-xs bg-gradient-to-r from-[#457b9d] to-[#1d3557] rounded text-white z-10 font-medium shadow-lg'>
-                        Message
-                      </Label>
+                    <div>
                       <Textarea
                         id='message'
                         name='message'
                         value={formData.message}
                         onChange={handleChange}
                         placeholder='Tell me about your project...'
-                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 pt-4 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
+                        className='bg-white/10 border-[#457b9d]/50 text-[#1d3557] dark:text-[#f1faee] placeholder:text-[#1d3557]/50 dark:placeholder:text-[#f1faee]/50 transition-all duration-300 focus:ring-2 focus:ring-[#a8dadc]/50 focus:border-[#a8dadc] hover:border-[#a8dadc] text-base rounded-xl'
                         rows={5}
                         required
                       />

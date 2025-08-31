@@ -111,7 +111,7 @@ export function Hero() {
   }
 
   return (
-    <section className='min-h-screen flex items-center justify-center relative overflow-hidden pt-20 md:pt-24 pb-4 md:pb-8'>
+    <section className='min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-20 pb-4 md:pb-8'>
       {/* Hero Section - Blue/Cyan Theme */}
       <div className='absolute -top-40 -right-40 w-[600px] h-[600px] bg-gradient-to-br from-[#a8dadc]/40 to-[#1d3557]/40 rounded-full blur-3xl opacity-50 z-0 animate-slow-spin'></div>
       <div className='absolute -bottom-40 -left-40 w-[600px] h-[600px] bg-gradient-to-tr from-[#457b9d]/40 to-[#1d3557]/40 rounded-full blur-3xl opacity-50 z-0 animate-slow-spin-reverse'></div>
@@ -121,7 +121,7 @@ export function Hero() {
         <div className='max-w-5xl mx-auto'>
           {/* Profile Image with Material Design 3 Styling */}
           <div className='mb-6 md:mb-8 animate-fade-in relative'>
-            <div className='relative w-28 h-28 md:w-40 md:h-40 lg:w-44 lg:h-44 mx-auto mb-4 md:mb-6'>
+            <div className='relative w-32 h-32 md:w-44 md:h-44 lg:w-48 lg:h-48 mx-auto mb-4 md:mb-6'>
               {/* Decorative ring with gradient */}
               <div className='absolute -inset-4 rounded-full bg-gradient-to-r from-[#457b9d]/30 via-[#a8dadc]/30 to-[#e63946]/30 blur-md'></div>
               
@@ -132,7 +132,7 @@ export function Hero() {
                   alt={currentData.name}
                   className='w-full h-full rounded-full object-cover object-center transition-all duration-500 hover:scale-105'
                   style={{
-                    objectPosition: "center center",
+                    objectPosition: "center 20%",
                     objectFit: "cover"
                   }}
                 />
@@ -151,7 +151,7 @@ export function Hero() {
 
           {/* Material Design 3 Typography with enhanced styling */}
           <div className='relative mb-6 md:mb-8'>
-            <h1 className='text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 animate-slide-up'>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 animate-slide-up'>
               <span className='text-[#1d3557] dark:text-[#f1faee]'>Hi, I'm </span>
               <span className='bg-gradient-to-r from-[#457b9d] via-[#a8dadc] to-[#e63946] bg-clip-text text-transparent'>
                 {currentData.name}
@@ -159,7 +159,7 @@ export function Hero() {
             </h1>
 
             {/* Typing text with enhanced styling */}
-            <div className='text-base md:text-xl lg:text-2xl xl:text-3xl text-[#1d3557]/90 dark:text-[#f1faee]/90 mb-4 md:mb-6 h-6 md:h-8 lg:h-12 animate-slide-up animation-delay-200'>
+            <div className='text-lg md:text-2xl lg:text-3xl xl:text-4xl text-[#1d3557]/90 dark:text-[#f1faee]/90 mb-4 md:mb-6 h-8 md:h-10 lg:h-12 animate-slide-up animation-delay-200'>
               <span>I'm a </span>
               <span className='relative'>
                 <span className='absolute -inset-1 bg-gradient-to-r from-[#457b9d]/20 to-[#a8dadc]/20 rounded-lg blur-sm'></span>
@@ -171,7 +171,7 @@ export function Hero() {
             </div>
 
             {/* Description with enhanced typography */}
-            <p className='text-xs md:text-lg lg:text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80 max-w-2xl mx-auto leading-relaxed animate-slide-up animation-delay-400'>
+            <p className='text-sm md:text-lg lg:text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80 max-w-2xl mx-auto leading-relaxed animate-slide-up animation-delay-400'>
               {currentData.description}
             </p>
           </div>
@@ -180,7 +180,7 @@ export function Hero() {
           <div className='flex flex-col sm:flex-row items-center justify-center space-y-3 md:space-y-0 sm:space-x-6 mb-6 md:mb-8 lg:mb-12 animate-slide-up animation-delay-600'>
             <Button
               size='lg'
-              className='bg-gradient-to-r from-[#457b9d] to-[#1d3557] hover:from-[#3d6d8c] hover:to-[#152843] px-5 md:px-6 lg:px-8 py-3 md:py-4 lg:py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-none text-[#f1faee] font-medium shadow-md text-xs md:text-sm lg:text-base'
+              className='bg-gradient-to-r from-[#457b9d] to-[#1d3557] hover:from-[#3d6d8c] hover:to-[#152843] px-6 md:px-8 lg:px-10 py-4 md:py-5 lg:py-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg border-none text-[#f1faee] font-medium shadow-md text-sm md:text-base lg:text-lg'
                                     onClick={() => {
                         const contactSection = document.getElementById('contact');
                         if (contactSection) {
@@ -193,13 +193,13 @@ export function Hero() {
                         }
                       }}
             >
-              <Mail className='h-3 w-3 md:h-4 md:w-4 lg:h-5 lg:w-5 mr-2' />
+              <Mail className='h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 mr-2' />
               Get In Touch
             </Button>
             <Button
               variant='outline'
               size='lg'
-              className='px-5 md:px-6 lg:px-8 py-3 md:py-4 lg:py-6 rounded-full transition-all duration-300 transform hover:scale-105 border border-[#a8dadc]/50 text-[#1d3557] dark:text-[#f1faee] bg-[#f1faee]/20 dark:bg-transparent hover:bg-[#f1faee]/30 dark:hover:bg-[#a8dadc]/20 hover:shadow-lg backdrop-blur-sm font-medium text-xs md:text-sm lg:text-base'
+              className='px-6 md:px-8 lg:px-10 py-4 md:py-5 lg:py-6 rounded-full transition-all duration-300 transform hover:scale-105 border border-[#a8dadc]/50 text-[#1d3557] dark:text-[#f1faee] bg-[#f1faee]/20 dark:bg-transparent hover:bg-[#f1faee]/30 dark:hover:bg-[#a8dadc]/20 hover:shadow-lg backdrop-blur-sm font-medium text-sm md:text-base lg:text-lg'
                                     onClick={() => {
                         const projectsSection = document.getElementById('projects');
                         if (projectsSection) {

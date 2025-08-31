@@ -92,7 +92,7 @@ export function Experience() {
   }, []);
 
   return (
-    <section id='experience' ref={sectionRef} className='py-20 relative'>
+    <section id='experience' ref={sectionRef} className='py-8 md:py-16 relative'>
       {/* Section background with subtle overlay */}
       <div className='absolute inset-0 bg-white/5 backdrop-blur-sm'></div>
       <div className="absolute top-40 right-10 w-96 h-96 bg-gradient-to-br from-[#a8dadc]/10 to-[#457b9d]/10 rounded-full blur-3xl opacity-30 z-0"></div>
@@ -116,15 +116,15 @@ export function Experience() {
           ) : (
             <div className='relative'>
               {/* Timeline line */}
-              <div className='absolute left-8 top-0 bottom-0 w-0.5 bg-[#a8dadc]/30'></div>
+              <div className='absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-[#a8dadc]/30'></div>
 
               <div className='space-y-12'>
                 {experiences.map((exp, index) => (
                   <div key={index} className='relative flex items-start'>
                     {/* Timeline dot */}
-                    <div className='absolute left-6 w-4 h-4 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full border-4 border-[#a8dadc]/30 shadow-lg'></div>
+                    <div className='absolute left-2 md:left-6 w-4 h-4 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full border-4 border-[#a8dadc]/30 shadow-lg'></div>
 
-                    <div className='ml-16 w-full'>
+                    <div className='ml-8 md:ml-16 w-full'>
                       <Card 
                         className='border-none shadow-lg relative z-10 overflow-hidden'
                         style={{

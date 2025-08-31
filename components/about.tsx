@@ -15,7 +15,7 @@ interface AboutInfo {
 
 const fallbackData: AboutInfo = {
   title: "About Me",
-  description: "Business Administration graduate from the University of Wollongong Dubai with expertise in marketing, administration, and HR roles. Specialized in client engagement, real estate operations, and HR processes, with a focus on efficient organizational management. Strong background in digital content creation and data organization. Beyond work, I'm an active sports enthusiast and volunteer, having played National Throwball and contributed to SOS Village initiatives.",
+  description: "Business Administration graduate with expertise in marketing, administration, and HR roles. Specialized in client engagement, real estate operations, and digital content creation.",
   highlights: [
     {
       icon: "🎓",
@@ -54,7 +54,7 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-12 md:py-20 relative">
+    <section id="about" className="py-8 md:py-16 relative">
       {/* About Section - Purple/Pink Theme */}
       <div className='absolute -top-20 -right-20 w-[500px] h-[500px] bg-gradient-to-br from-[#e63946]/35 to-[#a8dadc]/35 rounded-full blur-3xl opacity-45 z-0 animate-slow-spin-reverse'></div>
       <div className='absolute -bottom-20 -left-20 w-[550px] h-[550px] bg-gradient-to-tr from-[#457b9d]/35 to-[#e63946]/35 rounded-full blur-3xl opacity-45 z-0 animate-slow-spin'></div>
@@ -66,9 +66,6 @@ export function About() {
             <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 text-[#1d3557] dark:text-[#f1faee]">
               {fallbackData.title}
             </h2>
-            <p className="text-lg md:text-xl text-[#1d3557]/80 dark:text-[#f1faee]/80 max-w-2xl mx-auto mb-6 md:mb-8">
-              {fallbackData.description}
-            </p>
             {/* Material Design 3 decorative element */}
             <div className="h-1 w-24 bg-gradient-to-r from-[#457b9d] to-[#e63946] rounded-full mx-auto"></div>
           </div>
@@ -91,8 +88,11 @@ export function About() {
                 <div className="grid md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-start">
                   {/* Left column - Professional Summary with Material Design typography */}
                   <div className="prose prose-invert max-w-none">
-                    <p className="text-sm md:text-base lg:text-lg text-[#1d3557] dark:text-[#f1faee]/90 leading-relaxed font-medium">
-                      I am a dedicated professional with expertise in marketing, administration, and client relations. My passion lies in delivering exceptional results through strategic thinking, effective communication, and attention to detail.
+                    <p className="text-sm md:text-base lg:text-lg text-[#1d3557] dark:text-[#f1faee]/90 leading-relaxed font-medium mb-4">
+                      {fallbackData.description}
+                    </p>
+                    <p className="text-sm md:text-base text-[#1d3557] dark:text-[#f1faee]/80 leading-relaxed">
+                      I am a dedicated professional with expertise in marketing, administration, and client relations. My passion lies in delivering exceptional results through strategic thinking, effective communication, and attention to detail. Beyond work, I'm an active sports enthusiast and volunteer, having played National Throwball and contributed to SOS Village initiatives.
                     </p>
                   </div>
 

@@ -1,3 +1,5 @@
+import { Copyright } from 'lucide-react';
+
 export function Footer() {
 	const currentYear = new Date().getFullYear();
 
@@ -9,12 +11,11 @@ export function Footer() {
 			
 			<div className='container mx-auto px-4 md:px-6'>
 				<div className='flex items-center justify-center'>
-					{/* Footer Pills Container - Matching Navigation Design */}
-					<div className='flex items-center px-2 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 shadow-lg'>
-						{/* All Rights Reserved Pill */}
-						<div className='px-4 py-2 rounded-full text-sm font-medium text-white/80 bg-white/5 backdrop-blur-sm'>
-							All rights reserved @ Ayesha Fayyaz
-						</div>
+					<div className='flex items-center space-x-1 text-white/80 text-sm font-medium'>
+						<Copyright className='h-4 w-4' />
+						<span>{currentYear}</span>
+						<span>-</span>
+						<span>Ayesha Fayaz</span>
 					</div>
 				</div>
 			</div>
